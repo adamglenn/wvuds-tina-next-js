@@ -84,6 +84,22 @@ module.exports = {
       4: "4px",
     },
     extend: {
+      colors: {
+        'wvu-gold': '#EAAA00',
+        'wvu-blue': '#002855',
+        'wvu-accent--blue-dark': '#1C2B39',
+        'wvu-accent--blue-light': '#9DDAE6',
+        'wvu-accent--blue': '#0062A3',
+        'wvu-accent--yellow': '#FFE539',
+        'wvu-accent--old-gold': '#7F6310',
+        'wvu-accent--sunset': '#F58672',
+        'wvu-neutral--off-white': '#F7F7F7',
+        'wvu-neutral--warm-gray-light': '#BEB7B3',
+        'wvu-neutral--warm-gray-dark': '#554741',
+        'wvu-neutral--warm-gray-medium': '#988E8B',
+        'wvu-neutral--cream': '#F2E6C2',
+        'wvu-neutral--tan': '#B3A169',
+      },
       textDecoration: ["active"],
       opacity: {
         7: ".075",
@@ -101,6 +117,7 @@ module.exports = {
       fontFamily: {
         nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
         lato: ["Lato", ...defaultTheme.fontFamily.sans],
+        wvuShout: "'Helvetica Neue LT W05_97 Blk C', 'Arial Narrow', Impact, Charcoal, 'Arial Black', 'Helvetica Neue', Helvetica, 'Helvetica LT Std', 'Helvetica CY', Arial, 'Lucida Grande', sans-serif",
       },
       typography: (theme) => ({
         DEFAULT: {

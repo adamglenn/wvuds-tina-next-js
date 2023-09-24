@@ -40,7 +40,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
           {data.headline && (
             <h3
               data-tina-field={tinaField(data, "headline")}
-              className={`w-full relative	mb-10 text-5xl font-extrabold tracking-normal leading-tight title-font`}
+              className={`w-full relative	mb-10 text-5xl font-wvuShout text-wvu-gold tracking-normal leading-tight title-font`}
             >
               <span
                 className={`bg-clip-text text-transparent bg-gradient-to-r  ${

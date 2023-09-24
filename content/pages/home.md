@@ -1,7 +1,8 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - headline: It Starts Now
+  - tagline: My Tagline
+    headline: It Starts Now
     text: >
       This project is set up to show you the basics of working with Tina. You're
       looking at the landing page, which pulls content from
@@ -56,6 +57,7 @@ blocks:
     color: primary
     _template: testimonial
 ---
+
 
 
 

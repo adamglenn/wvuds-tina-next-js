@@ -334,7 +334,10 @@ const config = defineConfig({
             if (document._sys.filename === "about") {
               return `/about`;
             }
-            return undefined;
+            if (document._sys.filename === "students") {
+              return `/students`;
+            }
+            return document._sys.filename;
           },
         },
         fields: [
