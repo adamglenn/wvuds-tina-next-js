@@ -4,7 +4,7 @@ blocks:
   - tagline: Here's some text above the other text
     headline: This Big Text is Totally Awesome
     text: |
-      Here is some descriptive text.
+      Here is some descriptive text. Lorem ipsum.
     _template: hero
   - quote: >-
       There are only two hard things in Computer Science: cache invalidation and
@@ -13,5 +13,6 @@ blocks:
     color: primary
     _template: testimonial
 ---
+
 
 
