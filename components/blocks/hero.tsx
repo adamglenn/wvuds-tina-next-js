@@ -9,16 +9,34 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
+const bgColors = {
+  gold: "bg-wvu-gold",
+  blue: "bg-wvu-blue",
+  accentBlueDark: "bg-wvu-accent--blue-dark",
+  accentBlueLight: "bg-wvu-accent--blue-light",
+  accentBlue: "bg-wvu-accent--blue",
+  accentYellow: "bg-wvu-accent--yellow",
+  accentOldGold: "bg-wvu-accent--old-gold",
+  accentSunset: "bg-wvu-accent--sunset",
+  neutralOffWhite: "bg-wvu-neutral--off-white",
+  neutralWarmGrayLight: "bg-wvu-neutral--warm-gray-light",
+  neutralWarmGrayDark: "bg-wvu-neutral--warm-gray-dark",
+  neutralWarmGrayMedium: "bg-wvu-neutral--warm-gray-medium",
+  neutralCream: "bg-wvu-neutral--cream",
+  neutralTan: "bg-wvu-neutral--tan",
+  black: "bg-black",
+};
+
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
   const theme = useTheme();
-  // const backgroundImage = {
-  //   backgroundImage: "url('" + data.image.src + "') !important"
-  // }
+  const backgroundImage = {
+    backgroundImage: "url('" + data.image.src + "') !important"
+  }
 
   return (
     <div
       className={`bg-cover bg-${data.color}`}
-      // style={backgroundImage}
+      style={backgroundImage}
     >
       <Section>
         <Container
@@ -67,7 +85,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   );
 };
 
-export const heroBlockSchema = {
+export const heroBlockSchema: TinaTemplate = {
   name: "hero",
   label: "Hero",
   ui: {
@@ -158,6 +176,7 @@ export const heroBlockSchema = {
       name: "color",
       description: "Pick your background color.",
       ui: {
+        // @ts-ignore
         component: ColorPickerInput,
       },
     },
