@@ -1,6 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import { Header } from "./header";
+import { Masthead } from "./masthead";
+import { Nav } from "./nav";
 import { Footer } from "./footer";
 import { Theme } from "./theme";
 import layoutData from "../../content/global/index.json";
@@ -49,7 +51,8 @@ export const Layout = ({
             data.theme.font === "sans" && "font-sans"
           }`}
         >
-          <Header data={data?.header} />
+          <Masthead data={data?.header} />
+          <Nav data={data?.header} />
           <div className="flex-1 text-gray-800 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-1000 flex flex-col">
             {children}
           </div>

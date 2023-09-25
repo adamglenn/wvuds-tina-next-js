@@ -43,8 +43,26 @@
     font-family:"IowanOldStyleW01-BlackI";
     src:url("Fonts/83c03022-495c-46c5-9720-1921c37edb2b.woff2") format("woff2"),url("Fonts/702591b0-4649-4812-88b0-406590f969e6.woff") format("woff");
   }
+}
+
+@layer utilities {
   .font-wvuShout {
     text-transform: uppercase;
     line-height: 0.80487em !important;
+  }
+  .wvu-logo-lockup {
+    background-image: url("https://static.wvu.edu/global/images/logos/wvu/wvu-logo--2.0.0.svg") !important;
+    background-position: 0 -0.09em !important;
+    background-repeat: no-repeat !important;
+    background-size: 22.25em 3.5em !important;
+    color: #fff !important;
+    display: inline-block !important;
+    font-size: .8rem !important;
+    line-height: 1.4em !important;
+    max-width: 27em !important;
+    min-width: 22.2em !important;
+    padding-top: 3em !important;
+    padding-left: 4em !important;
+    text-transform: uppercase !important;
   }
 }
