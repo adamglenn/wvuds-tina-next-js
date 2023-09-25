@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --wvu-gold: "#EAAA00";
+  }
   @font-face{
     font-family:"Helvetica Neue LT W05_55 Roman";
     src:url("Fonts/08b57253-2e0d-4c12-9c57-107f6c67bc49.woff2") format("woff2"),url("Fonts/08edde9d-c27b-4731-a27f-d6cd9b01cd06.woff") format("woff");

@@ -23,8 +23,6 @@ blocks:
       alt: >-
         Photo of palm trees at sunset by Adam Birkett -
         unsplash.com/photos/75EFpyXu3Wg
-    theme:
-      backgroundColor: wvu-gold
     color: wvu-gold
     _template: hero
   - items:
@@ -59,6 +57,8 @@ blocks:
     color: primary
     _template: testimonial
 ---
+
+
 
 
 

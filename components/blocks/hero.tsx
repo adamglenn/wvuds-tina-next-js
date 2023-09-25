@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ColorPickerInput } from "../../tina/fields/color";
 import { Actions } from "../util/actions";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
@@ -7,18 +8,17 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import { ColorPickerInput } from "../../tina/fields/color";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
   const theme = useTheme();
-  const backgroundImage = {
-    backgroundImage: "url('" + data.image.src + "') !important"
-  }
+  // const backgroundImage = {
+  //   backgroundImage: "url('" + data.image.src + "') !important"
+  // }
 
   return (
     <div
-      className={`bg-cover bg-${data.theme.backgroundColor}`}
-      style={backgroundImage}
+      className={`bg-cover bg-${data.color}`}
+      // style={backgroundImage}
     >
       <Section>
         <Container
@@ -40,7 +40,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 data-tina-field={tinaField(data, "headline")}
                 className={`w-full relative	mb-10 text-7xl font-wvuShout text-wvu-gold tracking-normal leading-tight title-font`}
               >
-                {data.headline}{data.theme.backgroundColor}
+                {data.headline}{data.color}
               </h3>
             )}
             {data.text && (
@@ -67,7 +67,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   );
 };
 
-export const heroBlockSchema: TinaTemplate = {
+export const heroBlockSchema = {
   name: "hero",
   label: "Hero",
   ui: {
@@ -153,30 +153,13 @@ export const heroBlockSchema: TinaTemplate = {
       ],
     },
     {
-      type: "object",
-      label: "Theme",
-      name: "theme",
-      // @ts-ignore
-      fields: [
-        {
-          type: "string",
-          label: "Background Color",
-          name: "backgroundColor",
-          ui: {
-            component: ColorPickerInput,
-          },
-        },
-      ]
-    },
-    {
       type: "string",
       label: "Color",
       name: "color",
-      options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
-      ],
+      description: "Pick your background color.",
+      ui: {
+        component: ColorPickerInput,
+      },
     },
   ],
 };
