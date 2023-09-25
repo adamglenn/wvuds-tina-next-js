@@ -337,7 +337,7 @@ const config = defineConfig({
             if (document._sys.filename === "students") {
               return `/students`;
             }
-            return document._sys.filename;
+            return undefined
           },
         },
         fields: [
@@ -359,6 +359,7 @@ const config = defineConfig({
               visualSelector: true,
             },
             templates: [
+              // @ts-ignore
               heroBlockSchema,
               // @ts-ignore
               featureBlockSchema,
