@@ -1,10 +1,10 @@
 import { defineConfig } from "tinacms";
 import { contentBlockSchema } from "../components/blocks/content";
 import { featureBlockSchema } from "../components/blocks/features";
-import { pageCollectionBlockSchema } from "../components/blocks/page-collection";
 import { heroBlockSchema } from "../components/blocks/hero";
-import { heroTestBlockSchema } from "../components/blocks/heroTest";
+import { heroTestBlockSchema } from "../components/blocks/hero-test";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
+import { pageCollectionBlockSchema } from "../components/blocks/page-collection";
 import { ColorPickerInput } from "./fields/color";
 import { iconSchema } from "../components/util/icon";
 
@@ -362,9 +362,9 @@ const config = defineConfig({
               heroTestBlockSchema,
               // @ts-ignore
               featureBlockSchema,
-              pageCollectionBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,
+              pageCollectionBlockSchema,
             ],
           },
         ],
