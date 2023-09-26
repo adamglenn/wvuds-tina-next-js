@@ -5,26 +5,9 @@ import { useTheme } from "../layout";
 import type { TinaTemplate } from "tinacms";
 import {
   PageBlocksPostCollection,
-  PageBlocksPostCollectionItems,
 } from "../../tina/__generated__/types";
 import { PostsType } from "../../pages/posts";
 import { tinaField } from "tinacms/dist/react";
-
-export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionItems }) => {
-  return (
-    <div>
-      {data.title.name && (
-        <h2>{data.title.name}</h2>
-      )}
-      {data.title.avatar && (
-        <img
-          className="rounded-full"
-          src={data.title.avatar}
-        />
-      )}
-    </div>
-  );
-};
 
 export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => {
   const theme = useTheme();
@@ -40,7 +23,19 @@ export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => 
         )}
         {data.posts &&
           data.posts.map(function (block, i) {
-            return (<PostCollectionItems key={i} data={block} />)
+            return (
+              <div key={i}>
+                {block.title.name && (
+                  <h2>{block.title.name}</h2>
+                )}
+                {block.title.avatar && (
+                  <img
+                    className="rounded-full"
+                    src={block.title.avatar}
+                  />
+                )}
+              </div>
+            );
           })
         }
       </Container>
