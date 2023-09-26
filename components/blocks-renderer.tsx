@@ -1,6 +1,5 @@
 import type { Page, PageBlocks } from "../tina/__generated__/types";
 import { Content } from "./blocks/content";
-import { ContentTest } from "./blocks/content-test";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
 import { HeroTest } from "./blocks/heroTest";
@@ -27,8 +26,6 @@ export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
 const Block = (block: PageBlocks) => {
   switch (block.__typename) {
     case "PageBlocksContent":
-      return <Content data={block} />;
-    case "PageBlocksContentTest":
       return <Content data={block} />;
     case "PageBlocksHero":
       return <Hero data={block} />;
