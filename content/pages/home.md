@@ -1,6 +1,12 @@
 ---
 title: Tina Cloud Starter
 blocks:
+  - title: Posts Collection Title Yeah.
+    lede: Lede text.
+    posts:
+      - title: content/authors/napolean.md
+      - title: content/authors/pedro.md
+    _template: postCollection
   - tagline: Here's some text above the other text
     headline: This Big Text is Totally Awesome
     text: |
@@ -78,6 +84,14 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
+
 
 
 
