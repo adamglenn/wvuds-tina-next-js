@@ -70,6 +70,9 @@ export const postCollectionBlockSchema: TinaTemplate = {
       label: "Authors",
       type: "object",
       list: true,
+      ui: {
+        itemProps: (item) => ({ label: item.title.name }),
+      },
       fields: [
         {
           type: "string",
