@@ -1,6 +1,25 @@
 ---
 title: Tina Cloud Starter
 blocks:
+  - body: |+
+      Here is my content.
+
+    _template: contentTest
+  - tagline: Here's some text above the other text
+    headline: This Big Text is Totally Awesome
+    text: |
+      Here is some text.
+
+      Here is more text.
+    image:
+      src: /uploads/llama-2.avif
+    styles:
+      headlineFont: font-iowan-old-style-black leading-iowan-old-style
+      headlineColor: ''
+      headlineSize: text-6xl
+      headlineDecoration: wvu-bar
+    color: primary
+    _template: heroTest
   - tagline: My Tagline
     headline: It Starts Now
     text: >
@@ -19,7 +38,7 @@ blocks:
         icon: false
         link: /posts
     image:
-      src: ''
+      src: /uploads/unsplash-75EFpyXu3Wg.jpg
       alt: >-
         Photo of palm trees at sunset by Adam Birkett -
         unsplash.com/photos/75EFpyXu3Wg
@@ -54,9 +73,43 @@ blocks:
       There are only two hard things in Computer Science: cache invalidation and
       naming things.
     author: Phil Karlton
-    color: default
+    color: primary
     _template: testimonial
+  - body: |
+      Here is my body text.
+
+      Here is some more text.
+    color: default
+    _template: content
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

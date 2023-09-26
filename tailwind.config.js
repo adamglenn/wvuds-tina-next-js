@@ -100,6 +100,10 @@ module.exports = {
         'wvu-neutral--cream': '#F2E6C2',
         'wvu-neutral--tan': '#B3A169',
       },
+      lineHeight: {
+        "wvu-shout": "0.80487em",
+        "iowan-old-style": "1.16666666667em",
+      },
       textDecoration: ["active"],
       opacity: {
         7: ".075",
@@ -117,7 +121,13 @@ module.exports = {
       fontFamily: {
         nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
         lato: ["Lato", ...defaultTheme.fontFamily.sans],
-        wvuShout: "'Helvetica Neue LT W05_97 Blk C', 'Arial Narrow', Impact, Charcoal, 'Arial Black', 'Helvetica Neue', Helvetica, 'Helvetica LT Std', 'Helvetica CY', Arial, 'Lucida Grande', sans-serif",
+        "wvu-shout": "'Helvetica Neue LT W05_97 Blk C', 'Arial Narrow', Impact, Charcoal, 'Arial Black', 'Helvetica Neue', Helvetica, 'Helvetica LT Std', 'Helvetica CY', Arial, 'Lucida Grande', sans-serif",
+        "helvetica-neue-bold": "'Helvetica Neue LT W05_75 Bold'",
+        "helvetica-neue-light": "'Helvetica Neue LT W05_45 Light'",
+        "iowan-old-style": "'IowanOldStyleW01-Roman'",
+        "iowan-old-style-black": "'IowanOldStyleW01-Black'",
+        "iowan-old-style-black-italic": "'IowanOldStyleW01-BlackI'",
+        "iowan-old-style-italic": "'IowanOldStyleW01-Italic1120392'",
       },
       typography: (theme) => ({
         DEFAULT: {

@@ -46,9 +46,8 @@
 }
 
 @layer utilities {
-  .font-wvuShout {
+  .font-wvu-shout {
     text-transform: uppercase;
-    line-height: 0.80487em !important;
   }
   .wvu-logo-lockup {
     background-image: url("https://static.wvu.edu/global/images/logos/wvu/wvu-logo--2.0.0.svg") !important;
@@ -64,5 +63,20 @@
     padding-top: 3em !important;
     padding-left: 4em !important;
     text-transform: uppercase !important;
+  }
+  .wvu-bar {
+    position: relative !important;
+    padding-top: 1.5rem;
+  }
+  .wvu-bar::before {
+    background-color: #eaaa00 !important;
+    content: "" !important;
+    height: 0.5rem !important;
+    position: absolute !important;
+    top: 0rem !important;
+    width: 7rem !important;
+  }
+  .wvu-bar.wvu-bar--bottom {
+
   }
 }

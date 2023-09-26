@@ -3,10 +3,26 @@ import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
-import { PageBlocksContent } from "../../tina/__generated__/types";
+import { PageBlocksContentTest } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const Content = ({ data }: { data: PageBlocksContent }) => {
+const Callout = ({message}) => {
+  if(!message) {
+    return null
+  }
+  return (<div className="mt-8 flex justify-center">
+    <div className="inline-flex rounded-md shadow">
+      <a
+        href="#"
+        className="inline-flex items-center justify-center px-5 py-3 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+      >
+        {message}
+      </a>
+    </div>
+  </div>)
+}
+
+export const ContentTest = ({ data }: { data: PageBlocksContent }) => {
   return (
     <Section color={data.color}>
       <Container
@@ -17,15 +33,18 @@ export const Content = ({ data }: { data: PageBlocksContent }) => {
         size="large"
         width="medium"
       >
-        <TinaMarkdown content={data.body} />
+        <TinaMarkdown
+          content={data.body}
+          components={{Callout}}
+        />
       </Container>
     </Section>
   );
 };
 
-export const contentBlockSchema: TinaTemplate = {
-  name: "content",
-  label: "Content",
+export const contentTestBlockSchema: TinaTemplate = {
+  name: "contentTest",
+  label: "Content Test",
   ui: {
     previewSrc: "/blocks/content.png",
     defaultItem: {
@@ -37,6 +56,17 @@ export const contentBlockSchema: TinaTemplate = {
       type: "rich-text",
       label: "Body",
       name: "body",
+      templates: [
+        {
+          name: "Callout",
+          label: "Callout",
+          fields: [{
+            name: "message",
+            label: "Message",
+            type: "string"
+          }]
+        }
+      ]
     },
     {
       type: "string",
