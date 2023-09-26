@@ -72,6 +72,11 @@ export const postCollectionBlockSchema: TinaTemplate = {
       list: true,
       fields: [
         {
+          type: "string",
+          name: "author",
+          label: "Author",
+        },
+        {
           type: "reference",
           name: "title",
           collections: ['author']
