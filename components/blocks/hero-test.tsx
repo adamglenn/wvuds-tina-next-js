@@ -21,7 +21,6 @@ export const HeroTest = ({ data }: { data: PageBlocksHeroTest }) => {
     orange: "from-orange-300 to-orange-600",
     yellow: "from-yellow-400 to-yellow-600",
   };
-  const bgImage = data.isBackground
 
   return (
     <Section color={data.color}>
@@ -170,6 +169,11 @@ export const heroTestBlockSchema: TinaTemplate = {
           type: "string",
         },
       ],
+    },
+    {
+      type: "boolean",
+      name: "isBackground",
+      label: "Apply Image to Background",
     },
     {
       type: "object",
