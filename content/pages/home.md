@@ -4,7 +4,8 @@ blocks:
   - title: Posts Collection Title Yeah.
     lede: Lede text.
     posts:
-      - title: content/authors/napolean.md
+      - author: Test
+        title: content/authors/napolean.md
       - title: content/authors/pedro.md
     _template: postCollection
   - tagline: Here's some text above the other text
@@ -84,6 +85,7 @@ blocks:
     color: default
     _template: content
 ---
+
 
 
 
