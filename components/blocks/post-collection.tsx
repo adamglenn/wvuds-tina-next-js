@@ -13,13 +13,16 @@ import { tinaField } from "tinacms/dist/react";
 export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionPosts }) => {
   return (
     <div>
-      {data?.title.name && (
-        <h2>{data.title?.name}</h2>
+      {data && (
+        <h2>{data.title}</h2>
       )}
-      {data?.title.avatar && (
+      {data && (
+        <h2>{data.excerpt}</h2>
+      )}
+      {data && (
         <img
           className="rounded-full"
-          src={data.title?.avatar}
+          src={data.heroImg}
         />
       )}
     </div>
@@ -38,8 +41,8 @@ export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => 
         {data && (
           <h2>My {data.title}</h2>
         )}
-        {data?.posts &&
-          data.posts?.map(function (block, i) {
+        {data.posts &&
+          data.posts.map(function (block, i) {
             return (<PostCollectionItems key={i} data={block} />)
           })
         }
@@ -72,14 +75,9 @@ export const postCollectionBlockSchema: TinaTemplate = {
       list: true,
       fields: [
         {
-          type: "string",
-          name: "blurb",
-          label: "Blurb",
-        },
-        {
           type: "reference",
           name: "title",
-          collections: ['author']
+          collections: ['post']
         }
       ],
     },
