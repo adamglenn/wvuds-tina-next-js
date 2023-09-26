@@ -5,24 +5,28 @@ import { useTheme } from "../layout";
 import type { TinaTemplate } from "tinacms";
 import {
   PageBlocksPostCollection,
-  PageBlocksPostCollectionItems,
 } from "../../tina/__generated__/types";
 import { PostsType } from "../../pages/posts";
 import { tinaField } from "tinacms/dist/react";
 
-export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionItems }) => {
+export const PostCollectionItems = ({ data }: { data: PostsType[] }) => {
   return (
-    <div>
-      {data.title.name && (
-        <h2>{data.title.name}</h2>
-      )}
-      {data.title.avatar && (
-        <img
-          className="rounded-full"
-          src={data.title.avatar}
-        />
-      )}
-    </div>
+    <>
+      {data.map((postData) => {
+        const post = postData.node;
+        return (
+          <>
+            <h2>{post.author.name}</h2>
+            {post.author.avatar && (
+              <img
+                className="rounded-full"
+                src={post.author.avatar}
+              />
+            )}
+          </>
+        )
+      })}
+    </>
   );
 };
 
