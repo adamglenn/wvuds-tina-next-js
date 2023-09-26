@@ -172,11 +172,6 @@ export const heroTestBlockSchema: TinaTemplate = {
       ],
     },
     {
-      type: "boolean",
-      name: "isBackground",
-      label: "Apply Image to Background",
-    },
-    {
       type: "object",
       name: "styles",
       label: "Styles",
