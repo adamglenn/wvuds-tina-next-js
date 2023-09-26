@@ -1,21 +1,13 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - tagline: Here's some text above the other text
-    headline: This Big Text is Totally Awesome
-    text: |
-      Here is some text.
-
-      Here is more text.
-    image:
-      src: /uploads/llama-2.avif
-    styles:
-      headlineFont: font-iowan-old-style-black leading-iowan-old-style
-      headlineColor: ''
-      headlineSize: text-6xl
-      headlineDecoration: wvu-bar
-    color: primary
-    _template: heroTest
+  - title: Article Collection
+    lede: Lede text.
+    posts:
+      - title: content/posts/Adams-First-Blog-Post.mdx
+      - title: content/posts/voteForPedro.mdx
+      - title: content/posts/anotherPost.mdx
+    _template: postCollection
   - tagline: My Tagline
     headline: It Starts Now
     text: >
@@ -78,6 +70,13 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
 
 
 

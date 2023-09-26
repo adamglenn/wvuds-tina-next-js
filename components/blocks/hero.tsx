@@ -8,9 +8,10 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const Hero = ({ data }: { data: PageBlocksHero }) => {
+export const HeroTest = ({ data }: { data: PageBlocksHeroTest }) => {
   const theme = useTheme();
   const headlineColorClasses = {
+    "wvu-gold": "text-wvu-gold",
     blue: "from-blue-400 to-blue-600",
     teal: "from-teal-400 to-teal-600",
     green: "from-green-400 to-green-600",
@@ -40,17 +41,15 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
           {data.headline && (
             <h3
               data-tina-field={tinaField(data, "headline")}
-              className={`w-full relative	mb-10 text-5xl font-extrabold tracking-normal leading-tight title-font`}
+              className={`w-full relative	mb-10`}
             >
-              <span
-                className={`bg-clip-text text-transparent bg-gradient-to-r  ${
-                  data.color === "primary"
-                    ? `from-white to-gray-100`
-                    : headlineColorClasses[theme.color]
-                }`}
-              >
-                {data.headline}
-              </span>
+              {data.styles && (
+                <span
+                  className={`block ${data.styles.headlineDecoration} ${data.styles.headlineColor} ${data.styles.headlineSize} ${data.styles.headlineFont}`}
+                >
+                  {data.headline}
+                </span>
+              )}
             </h3>
           )}
           {data.text && (
@@ -177,6 +176,106 @@ export const heroBlockSchema: TinaTemplate = {
           type: "string",
         },
       ],
+    },
+    {
+      type: "boolean",
+      name: "isBackground",
+      label: "Apply Image to Background",
+    },
+    {
+      type: "object",
+      name: "styles",
+      label: "Styles",
+      fields: [
+        {
+          type: "string",
+          label: "Headline Font",
+          name: "headlineFont",
+          options: [
+            {
+              label: "Default",
+              value: "font-wvu-shout leading-wvu-shout",
+            },
+            {
+              label: "Helvetica Neue Bold",
+              value: "font-helvetica-neue-bold leading-tight",
+            },
+            {
+              label: "Helvetica Neue Thin",
+              value: "font-helvetica-neue-thin leading-tight",
+            },
+            {
+              label: "Iowan Old Style",
+              value: "font-iowan-old-style leading-iowan-old-style",
+            },
+            {
+              label: "Iowan Old Style Italic",
+              value: "font-iowan-old-style-italic leading-iowan-old-style",
+            },
+            {
+              label: "Iowan Old Style Black",
+              value: "font-iowan-old-style-black leading-iowan-old-style",
+            },
+            {
+              label: "Iowan Old Style Black Italic",
+              value: "font-iowan-old-style-black-italic leading-iowan-old-style",
+            },
+          ]
+        },
+        {
+          type: "string",
+          label: "Headline Color",
+          name: "headlineColor",
+          options: [
+            {
+              label: "WVU Gold",
+              value: "text-wvu-gold",
+            },
+            {
+              label: "WVU Blue",
+              value: "text-wvu-blue",
+            },
+          ]
+        },
+        {
+          type: "string",
+          label: "Headline Size",
+          name: "headlineSize",
+          options: [
+            {
+              label: "Default",
+              value: "text-7xl",
+            },
+            {
+              label: "Medium",
+              value: "text-6xl",
+            },
+            {
+              label: "Small",
+              value: "text-5xl",
+            },
+          ]
+        },
+        {
+          type: "string",
+          label: "Headline Decoration",
+          name: "headlineDecoration",
+          options: [
+            {
+              label: "WVU Bar (Top)",
+              value: "wvu-bar",
+            },
+            {
+              label: "WVU Bar (Bottom)",
+              value: "wvu-bar wvu-bar--bottom",
+            },
+            {
+              label: "WVU Slash",
+              value: "wvu-slash",
+            },
+          ]
+        }
+      ]
     },
     {
       type: "string",

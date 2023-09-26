@@ -13,17 +13,13 @@ import { tinaField } from "tinacms/dist/react";
 export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionPosts }) => {
   return (
     <div>
-      {data && (
-        <h2>{data.title}</h2>
+      {data.title?.heroImg && (
+        (data.title?.heroImg && (
+          <figure className="mb-4"><img src={data.title?.heroImg} /></figure>
+        ))
       )}
-      {data && (
-        <h2>{data.excerpt}</h2>
-      )}
-      {data && (
-        <img
-          className="rounded-full"
-          src={data.heroImg}
-        />
+      {data.title?.title && (
+        <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue" data-tina-field={tinaField(data, "title")}>{data.title?.title}</h2>
       )}
     </div>
   );
@@ -31,21 +27,21 @@ export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionPo
 
 export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => {
   const theme = useTheme();
-  const i = 0;
   return (
     <Section className="flex-1">
       <Container
         size="large"
-        className="grid grid-cols-1 md:grid-cols-5 gap-14 items-center justify-center"
       >
         {data && (
-          <h2>My {data.title}</h2>
+          <h2 className="font-wvu-shout leading-wvu-shout text-6xl text-wvu-blue wvu-bar mb-12">My {data.title}</h2>
         )}
-        {data.posts &&
-          data.posts.map(function (block, i) {
-            return (<PostCollectionItems key={i} data={block} />)
-          })
-        }
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
+          {data.posts &&
+            data.posts.map(function (block, i) {
+              return (<PostCollectionItems key={i} data={block} />)
+            })
+          }
+        </div>
       </Container>
     </Section>
   );
@@ -70,7 +66,7 @@ export const postCollectionBlockSchema: TinaTemplate = {
     },
     {
       name: "posts",
-      label: "Authors",
+      label: "Posts",
       type: "object",
       list: true,
       fields: [
@@ -78,7 +74,7 @@ export const postCollectionBlockSchema: TinaTemplate = {
           type: "reference",
           name: "title",
           collections: ['post']
-        }
+        },
       ],
     },
   ],
