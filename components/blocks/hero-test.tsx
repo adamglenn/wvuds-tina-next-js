@@ -63,13 +63,6 @@ export const HeroTest = ({ data }: { data: PageBlocksHeroTest }) => {
               <TinaMarkdown content={data.text} />
             </div>
           )}
-          {data.actions && (
-            <Actions
-              className="justify-center md:justify-start py-2"
-              parentColor={data.color}
-              actions={data.actions}
-            />
-          )}
         </div>
         {data.image && (
           <div
