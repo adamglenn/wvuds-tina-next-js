@@ -5,12 +5,12 @@ import { useTheme } from "../layout";
 import type { TinaTemplate } from "tinacms";
 import {
   PageBlocksPostCollection,
-  PostCollectionItems,
+  PageBlocksPostCollectionItems,
 } from "../../tina/__generated__/types";
 import { PostsType } from "../../pages/posts";
 import { tinaField } from "tinacms/dist/react";
 
-export const CollectionItems = ({ data }: { data: PostCollectionItems }) => {
+export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionItems }) => {
   return (
     <div>
       {data.title.name && (
