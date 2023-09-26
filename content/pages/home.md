@@ -1,10 +1,6 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - body: |+
-      Here is my content.
-
-    _template: contentTest
   - tagline: Here's some text above the other text
     headline: This Big Text is Totally Awesome
     text: |
