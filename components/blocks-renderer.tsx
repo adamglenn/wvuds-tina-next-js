@@ -4,6 +4,7 @@ import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
 import { HeroTest } from "./blocks/hero-test";
 import { Testimonial } from "./blocks/testimonial";
+import { PostCollection } from "./blocks/post-collection";
 import { tinaField } from "tinacms/dist/react";
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
@@ -34,6 +35,8 @@ const Block = (block: PageBlocks) => {
       return <Features data={block} />;
     case "PageBlocksTestimonial":
       return <Testimonial data={block} />;
+    case "PageBlocksPostCollection":
+      return <PostCollection data={block} />;
     default:
       return null;
   }
