@@ -8,7 +8,7 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const HeroTest = ({ data }: { data: PageBlocksHeroTest }) => {
+export const Hero = ({ data }: { data: PageBlocksHero }) => {
   const theme = useTheme();
   const headlineColorClasses = {
     "wvu-gold": "text-wvu-gold",

@@ -6,6 +6,17 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksContent } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
+export const Callout = ({headerText}) => {
+  if(!headerText) {
+    return null
+  }
+  return (<div className="my-8 flex justify-center w-100 bg-wvu-gold text-wvu-blue p-10">
+    <h2>
+      {headerText}
+    </h2>
+  </div>)
+}
+
 export const Content = ({ data }: { data: PageBlocksContent }) => {
   return (
     <Section color={data.color}>
@@ -13,11 +24,15 @@ export const Content = ({ data }: { data: PageBlocksContent }) => {
         className={`prose prose-lg ${
           data.color === "primary" ? `prose-primary` : `dark:prose-dark`
         }`}
-        data-tina-field={tinaField(data, "body")}
         size="large"
-        width="medium"
+        width="large"
       >
-        <TinaMarkdown content={data.body} />
+        <div data-tina-field={tinaField(data, "body")}>
+          <TinaMarkdown
+            content={data.body}
+            components={{Callout}}
+          />
+        </div>
       </Container>
     </Section>
   );
@@ -37,6 +52,43 @@ export const contentBlockSchema: TinaTemplate = {
       type: "rich-text",
       label: "Body",
       name: "body",
+      templates: [
+        {
+          name: "callout",
+          label: "Callout",
+          fields: [
+            {
+              name: "headerText",
+              label: "Header Text",
+              type: "string",
+              required: true,
+            },
+            {
+              name: "bodyText",
+              label: "Body Text",
+              type: "rich-text",
+            },
+            {
+              name: "actions",
+              label: "Actions",
+              type: "object",
+              list: true,
+              fields: [
+                {
+                  type: "string",
+                  name: "action",
+                  label: "Action",
+                },
+                {
+                  type: "string",
+                  name: "link",
+                  label: "Action",
+                }
+              ],
+            }
+          ]
+        }
+      ]
     },
     {
       type: "string",

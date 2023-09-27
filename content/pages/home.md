@@ -1,6 +1,24 @@
 ---
 title: Tina Cloud Starter
 blocks:
+  - tagline: Here's some text above the other text
+    headline: Here is my headline
+    text: |
+      Here is my text.
+    actions:
+      - label: Action Label
+        type: button
+        icon: true
+        link: /
+    image:
+      src: /uploads/llama-4.avif
+    styles:
+      headlineFont: font-wvu-shout leading-wvu-shout
+      headlineColor: ''
+      headlineSize: text-7xl
+      headlineDecoration: wvu-bar
+    color: primary
+    _template: hero
   - title: Article Collection
     lede: Lede text.
     posts:
@@ -8,30 +26,6 @@ blocks:
       - title: content/posts/voteForPedro.mdx
       - title: content/posts/anotherPost.mdx
     _template: postCollection
-  - tagline: My Tagline
-    headline: It Starts Now
-    text: >
-      This project is set up to show you the basics of working with Tina. You're
-      looking at the landing page, which pulls content from
-      `content/pages/home.md`, components from components/blocks, and puts them
-      all together in `pages/[filename].tsx`, all based on a config
-      `tina/config.tsx`.
-    actions:
-      - label: Get Started
-        type: button
-        icon: true
-        link: /posts
-      - label: Read Blog
-        type: link
-        icon: false
-        link: /posts
-    image:
-      src: /uploads/unsplash-75EFpyXu3Wg.jpg
-      alt: >-
-        Photo of palm trees at sunset by Adam Birkett -
-        unsplash.com/photos/75EFpyXu3Wg
-    color: wvu-gold
-    _template: hero
   - items:
       - icon:
           name: BiCodeBlock
@@ -70,6 +64,16 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
+
+
+
 
 
 
