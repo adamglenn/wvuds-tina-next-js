@@ -6,12 +6,9 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksContent } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const Callout = ({headerText}) => {
-  if(!headerText) {
-    return null
-  }
+const Callout = ({headerText}) => {
   return (<div className="my-8 flex justify-center w-100 bg-wvu-gold text-wvu-blue p-10">
-    <h2>
+    <h2 className="mt-0 font-wvu-shout text-7xl text-wvu-blue">
       {headerText}
     </h2>
   </div>)
@@ -30,6 +27,7 @@ export const Content = ({ data }: { data: PageBlocksContent }) => {
         <div data-tina-field={tinaField(data, "body")}>
           <TinaMarkdown
             content={data.body}
+            // @ts-ignore
             components={{Callout}}
           />
         </div>
@@ -54,14 +52,13 @@ export const contentBlockSchema: TinaTemplate = {
       name: "body",
       templates: [
         {
-          name: "callout",
+          name: "Callout",
           label: "Callout",
           fields: [
             {
               name: "headerText",
               label: "Header Text",
               type: "string",
-              required: true,
             },
             {
               name: "bodyText",
