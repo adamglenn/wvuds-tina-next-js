@@ -6,14 +6,6 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksContent } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-const Callout = ({headerText}) => {
-  return (<div className="my-8 flex justify-center w-100 bg-wvu-gold text-wvu-blue p-10">
-    <h2 className="mt-0 font-wvu-shout text-7xl text-wvu-blue">
-      {headerText}
-    </h2>
-  </div>)
-}
-
 export const Content = ({ data }: { data: PageBlocksContent }) => {
   return (
     <Section color={data.color}>
@@ -25,11 +17,7 @@ export const Content = ({ data }: { data: PageBlocksContent }) => {
         width="large"
       >
         <div data-tina-field={tinaField(data, "body")}>
-          <TinaMarkdown
-            content={data.body}
-            // @ts-ignore
-            components={{Callout}}
-          />
+          <TinaMarkdown content={data.body} />
         </div>
       </Container>
     </Section>
@@ -50,42 +38,6 @@ export const contentBlockSchema: TinaTemplate = {
       type: "rich-text",
       label: "Body",
       name: "body",
-      templates: [
-        {
-          name: "Callout",
-          label: "Callout",
-          fields: [
-            {
-              name: "headerText",
-              label: "Header Text",
-              type: "string",
-            },
-            {
-              name: "bodyText",
-              label: "Body Text",
-              type: "rich-text",
-            },
-            {
-              name: "actions",
-              label: "Actions",
-              type: "object",
-              list: true,
-              fields: [
-                {
-                  type: "string",
-                  name: "action",
-                  label: "Action",
-                },
-                {
-                  type: "string",
-                  name: "link",
-                  label: "Action",
-                }
-              ],
-            }
-          ]
-        }
-      ]
     },
     {
       type: "string",
