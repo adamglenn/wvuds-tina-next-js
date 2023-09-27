@@ -11,7 +11,9 @@ blocks:
         icon: true
         link: /
     image:
-      src: /uploads/llama-4.avif
+      src: /uploads/39130 S AHR 0859 XX.jpg
+    backgroundPosition: bg-left-top
+    isBackground: true
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
       headlineColor: ''
@@ -22,9 +24,9 @@ blocks:
   - title: Article Collection
     lede: Lede text.
     posts:
+      - title: content/posts/anotherPost.mdx
       - title: content/posts/Adams-First-Blog-Post.mdx
       - title: content/posts/voteForPedro.mdx
-      - title: content/posts/anotherPost.mdx
     _template: postCollection
   - items:
       - icon:
@@ -64,6 +66,13 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
 
 
 

@@ -10,6 +10,18 @@ import { tinaField } from "tinacms/dist/react";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
   const theme = useTheme();
+  const backgroundStyle = {
+    backgroundImage: "url('" + data.image.src + "') !important"
+  }
+  const baseOverlayClasses = "text-white row-start-2 md:row-start-1 md:col-span-3 text-center md:text-left my-32"
+  const overlayClasses = data.isBackground
+  let overlayStyles = ""
+  if (overlayClasses) {
+    overlayStyles = "backdrop-blur-sm bg-black/30 p-12 " + baseOverlayClasses
+  } else {
+    overlayStyles = baseOverlayClasses
+  }
+  
   const headlineColorClasses = {
     "wvu-gold": "text-wvu-gold",
     blue: "from-blue-400 to-blue-600",
@@ -23,71 +35,61 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   };
 
   return (
-    <Section color={data.color}>
-      <Container
-        size="large"
-        className="grid grid-cols-1 md:grid-cols-5 gap-14 items-center justify-center"
+    <Section>
+      <div
+        style={backgroundStyle}
+        className={`bg-cover bg-${data.color} ${data.backgroundPosition}`}
       >
-        <div className="row-start-2 md:row-start-1 md:col-span-3 text-center md:text-left">
-          {data.tagline && (
-            <h2
-              data-tina-field={tinaField(data, "tagline")}
-              className="relative inline-block px-3 py-1 mb-8 text-md font-bold tracking-wide title-font z-20"
-            >
-              {data.tagline}
-              <span className="absolute w-full h-full left-0 top-0 rounded-full -z-1 bg-current opacity-7"></span>
-            </h2>
-          )}
-          {data.headline && (
-            <h3
-              data-tina-field={tinaField(data, "headline")}
-              className={`w-full relative	mb-10`}
-            >
-              {data.styles && (
-                <span
-                  className={`block ${data.styles.headlineDecoration} ${data.styles.headlineColor} ${data.styles.headlineSize} ${data.styles.headlineFont}`}
-                >
-                  {data.headline}
-                </span>
-              )}
-            </h3>
-          )}
-          {data.text && (
-            <div
-              data-tina-field={tinaField(data, "text")}
-              className={`prose prose-lg mx-auto md:mx-0 mb-10 ${
-                data.color === "primary" ? `prose-primary` : `dark:prose-dark`
-              }`}
-            >
-              <TinaMarkdown content={data.text} />
-            </div>
-          )}
-          {data.actions && (
-            <Actions
-              className="justify-center md:justify-start py-2"
-              parentColor={data.color}
-              actions={data.actions}
-            />
-          )}
-        </div>
-        {data.image && (
+        <Container
+          size="large"
+          className="grid grid-cols-1 md:grid-cols-5 gap-14 items-center justify-center"
+        >
           <div
-            data-tina-field={tinaField(data.image, "src")}
-            className="relative row-start-1 md:col-span-2 flex justify-center"
+            className={overlayStyles}
           >
-            <img
-              className="absolute w-full rounded-lg max-w-xs md:max-w-none h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
-              src={data.image.src}
-              aria-hidden="true"
-            />
-            <img
-              className="relative z-10 w-full max-w-xs rounded-lg md:max-w-none h-auto"
-              alt={data.image.alt}
-              src={data.image.src}
-            />
+            {data.tagline && (
+              <h2
+                data-tina-field={tinaField(data, "tagline")}
+                className="relative inline-block px-3 py-1 mb-8 text-md font-bold tracking-wide title-font z-20"
+              >
+                {data.tagline}
+                <span className="absolute w-full h-full left-0 top-0 rounded-full -z-1 bg-current opacity-7"></span>
+              </h2>
+            )}
+            {data.headline && (
+              <h3
+                data-tina-field={tinaField(data, "headline")}
+                className={`w-full relative	mb-10`}
+              >
+                {data.styles && (
+                  <span
+                    className={`block ${data.styles.headlineDecoration} ${data.styles.headlineColor} ${data.styles.headlineSize} ${data.styles.headlineFont}`}
+                  >
+                    {data.headline}
+                  </span>
+                )}
+              </h3>
+            )}
+            {data.text && (
+              <div
+                data-tina-field={tinaField(data, "text")}
+                className={`prose prose-lg mx-auto md:mx-0 mb-10 ${
+                  data.color === "primary" ? `prose-primary` : `dark:prose-dark`
+                }`}
+              >
+                <TinaMarkdown content={data.text} />
+              </div>
+            )}
+            {data.actions && (
+              <Actions
+                className="justify-center md:justify-start py-2"
+                parentColor={data.color}
+                actions={data.actions}
+              />
+            )}
           </div>
-        )}
-      </Container>
+        </Container>
+      </div>
     </Section>
   );
 };
@@ -178,9 +180,52 @@ export const heroBlockSchema: TinaTemplate = {
       ],
     },
     {
+      type: "string",
+      name: "backgroundPosition",
+      label: "Background Position",
+      options: [
+        {
+          label: "Bottom",
+          value: "bg-bottom",
+        },
+        {
+          label: "Center",
+          value: "bg-center",
+        },
+        {
+          label: "Left",
+          value: "bg-left",
+        },
+        {
+          label: "Left-Bottom",
+          value: "bg-left-bottom",
+        },
+        {
+          label: "Left-Top",
+          value: "bg-left-top",
+        },
+        {
+          label: "Right",
+          value: "bg-right",
+        },
+        {
+          label: "Right-Bottom",
+          value: "bg-right-bottom",
+        },
+        {
+          label: "Right-Top",
+          value: "bg-right-top",
+        },
+        {
+          label: "Top",
+          value: "bg-top",
+        }
+      ]
+    },
+    {
       type: "boolean",
       name: "isBackground",
-      label: "Apply Image to Background",
+      label: "Apply Overlay",
     },
     {
       type: "object",

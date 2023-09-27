@@ -61,6 +61,11 @@ const config = defineConfig({
             name: "excerpt",
           },
           {
+            type: "string",
+            label: "Collection Preview",
+            name: "preview",
+          },
+          {
             type: "reference",
             label: "Author",
             name: "author",
@@ -324,7 +329,65 @@ const config = defineConfig({
         ],
       },
       {
-        label: "Pages",
+        label: "Content Pages",
+        name: "page",
+        path: "content/content-pages",
+        ui: {
+          router: ({ document }) => {
+            if (document._sys.filename === "back-page-test") {
+              return `/`;
+            }
+            return undefined;
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            label: "Title",
+            name: "title",
+            description:
+              "The title of the page. This is used to display the title in the CMS",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "object",
+            list: true,
+            name: "blocks",
+            label: "Main",
+            ui: {
+              visualSelector: true,
+            },
+            templates: [
+              heroBlockSchema,
+              // @ts-ignore
+              featureBlockSchema,
+              contentBlockSchema,
+              testimonialBlockSchema,
+              postCollectionBlockSchema,
+            ],
+          },
+          {
+            type: "object",
+            list: true,
+            name: "sidebarBlocks",
+            label: "Sidebar",
+            ui: {
+              visualSelector: true,
+            },
+            templates: [
+              heroBlockSchema,
+              // @ts-ignore
+              featureBlockSchema,
+              contentBlockSchema,
+              testimonialBlockSchema,
+              postCollectionBlockSchema,
+            ],
+          },
+        ],
+      },
+      {
+        label: "Marketing Pages",
         name: "page",
         path: "content/pages",
         ui: {
