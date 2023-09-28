@@ -1,6 +1,15 @@
 ---
 title: Tina Cloud Starter
 blocks:
+  - main:
+      - body: |
+          Here is my rich text.
+        _template: richText
+    sidebar:
+      - body: |
+          Here is my sidebar text.
+        _template: richText
+    _template: contentPlus
   - tagline: Here's some text above the other text
     headline: Here is my headline new text
     text: |
@@ -66,6 +75,10 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
 
 
 

@@ -3,21 +3,18 @@ import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
-import { PageBlocksContent } from "../../tina/__generated__/types";
+import { PageBlocksContentPlus } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
 export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
   return (
-    <Section color={data.color}>
+    <Section>
       <Container
-        className={`prose prose-lg ${
-          data.color === "primary" ? `prose-primary` : `dark:prose-dark`
-        }`}
         size="large"
         width="large"
       >
-        <div data-tina-field={tinaField(data, "body")}>
-          <TinaMarkdown content={data.body} />
+        <div data-tina-field={tinaField(data.main, "body")}>
+          <TinaMarkdown content={data.main.body} />
         </div>
       </Container>
     </Section>
@@ -35,19 +32,42 @@ export const contentPlusBlockSchema: TinaTemplate = {
   },
   fields: [
     {
-      type: "rich-text",
-      label: "Body",
-      name: "body",
+      name: "main",
+      label: "Main",
+      type: "object",
+      list: true,
+      templates: [
+        {
+          name: "richText",
+          label: "Rich Text",
+          fields: [
+            {
+              type: "rich-text",
+              label: "Body",
+              name: "body",
+            },
+          ],
+        }
+      ]
     },
     {
-      type: "string",
-      label: "Color",
-      name: "color",
-      options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
-      ],
-    },
-  ],
+      name: "sidebar",
+      label: "Sidebar",
+      type: "object",
+      list: true,
+      templates: [
+        {
+          name: "richText",
+          label: "Rich Text",
+          fields: [
+            {
+              type: "rich-text",
+              label: "Body",
+              name: "body",
+            },
+          ],
+        }
+      ]
+    }
+  ]
 };
