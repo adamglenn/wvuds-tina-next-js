@@ -1,32 +1,26 @@
 ---
-title: Test Page
+title: Tina Demo
 blocks:
   - tagline: Here's some text above the other text
     headline: This Big Text is Totally Awesome
     text: |
-      Here is my hero text.
+      Here is some body copy.
     actions:
-      - label: Click Here
+      - label: Call to Action
         type: button
-        icon: false
+        icon: true
         link: /
     image:
-      src: /uploads/39257 S DJM 0312 XX.jpg
+      src: /uploads/39197 S JFS 0026 XX.jpg
     isBackground: true
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
-      headlineColor: ''
+      headlineColor: text-wvu-gold
       headlineSize: text-7xl
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
-  - title: My Bog Posts
-    lede: Lede Text
-    posts:
-      - title: content/posts/voteForPedro.mdx
-      - title: content/posts/anotherPost.mdx
-      - title: content/posts/Adams-First-Blog-Post.mdx
-    _template: postCollection
+  - _template: postCollection
   - items:
       - icon:
           name: ''
@@ -53,22 +47,9 @@ blocks:
           This is where you might talk about the feature, if this wasn't just
           filler text.
     _template: features
-  - quote: >-
-      There are only two hard things in Computer Science: cache invalidation and
-      naming things.
-    author: Phil Karlton
-    color: primary
-    _template: testimonial
+  - body: ''
+    _template: content
 ---
-
-
-
-
-
-
-
-
-
 
 
 

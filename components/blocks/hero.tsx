@@ -11,7 +11,7 @@ import { tinaField } from "tinacms/dist/react";
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
   const theme = useTheme();
   const backgroundStyle = {
-    backgroundImage: "url('" + data.image.src + "') !important"
+    backgroundImage: "url('" + data.image?.src + "') !important"
   }
   const baseOverlayClasses = "text-white row-start-2 md:row-start-1 md:col-span-3 text-center md:text-left my-32"
   const overlayClasses = data.isBackground

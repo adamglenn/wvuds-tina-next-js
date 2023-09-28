@@ -2,7 +2,7 @@
 title: Tina Cloud Starter
 blocks:
   - tagline: Here's some text above the other text
-    headline: Here is my headline
+    headline: Here is my headline new text
     text: |
       Here is my text.
     actions:
@@ -25,13 +25,13 @@ blocks:
     lede: Lede text.
     posts:
       - title: content/posts/anotherPost.mdx
-      - title: content/posts/Adams-First-Blog-Post.mdx
       - title: content/posts/voteForPedro.mdx
+      - title: content/posts/Adams-First-Blog-Post.mdx
     _template: postCollection
   - items:
       - icon:
-          name: BiCodeBlock
-          color: red
+          name: BiArchiveOut
+          color: green
           style: float
         title: Amazing Feature
         text: >-
@@ -66,6 +66,9 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
 
 
 
