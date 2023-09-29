@@ -38,7 +38,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     <Section>
       <div
         style={backgroundStyle}
-        className={`bg-cover bg-${data.color} ${data.backgroundPosition}`}
+        className={`bg-cover bg-${data.color} ${data.backgroundPosition} ${data.backgroundAttachment}`}
       >
         <Container
           size="large"
@@ -223,6 +223,21 @@ export const heroBlockSchema: TinaTemplate = {
       ]
     },
     {
+      type: "string",
+      name: "backgroundAttachment",
+      label: "Background Attachment",
+      options: [
+        {
+          label: "Default",
+          value: "",
+        },
+        {
+          label: "Fixed",
+          value: "bg-fixed",
+        }
+      ]
+    },
+    {
       type: "boolean",
       name: "isBackground",
       label: "Apply Overlay",
@@ -326,6 +341,7 @@ export const heroBlockSchema: TinaTemplate = {
       type: "string",
       label: "Color",
       name: "color",
+      description: "(If no background image)",
       options: [
         { label: "Default", value: "default" },
         { label: "Tint", value: "tint" },

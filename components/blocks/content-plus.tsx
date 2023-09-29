@@ -37,9 +37,19 @@ export const SidebarBlocks = ({
   switch (data.__typename) {
     case "PageBlocksContentPlusSidebarCallout":
       return (
-        <div className="bg-wvu-gold p-10" data-tina-field={tinaField(data, "callout")}>
-          <h3 className={`${data.styles.headingFont}`}>{data.heading}</h3>
-          <TinaMarkdown content={data.body} />
+        <div
+          className="drop-shadow-xl bg-wvu-gold p-10 mb-10"
+          data-tina-field={tinaField(data, "callout")}
+        >
+          <h3
+            className={`mt-0 mb-4 ${data.style === "style-1" ? `font-wvu-shout text-3xl text-wvu-blue leading-wvu-shout` : `font-helvetica-neue-bold leading-tighter`
+            }`}
+          >
+            {data.heading}
+          </h3>
+          <div className="text-sm">
+            <TinaMarkdown content={data.body} />
+          </div>
         </div>
       );
     case "PageBlocksContentPlusSidebarAnotherCallout":
@@ -68,8 +78,7 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
               components={components}
             />
           </div>
-          <div className="col-span-4">
-            <h2>Sidebar</h2>
+          <div className="col-span-4 not-prose">
             {data.sidebar.map(function (block, i) {
               return <SidebarBlocks key={i} data={block} />;
             })}
@@ -125,55 +134,28 @@ export const contentPlusBlockSchema: TinaTemplate = {
               type: "string",
             },
             {
+              type: "string",
+              label: "Style",
+              name: "style",
+              options: [
+                {
+                  label: "Style 1",
+                  value: "style-1",
+                },
+                {
+                  label: "Style 2",
+                  value: "style-2",
+                },
+                {
+                  label: "Style 2",
+                  value: "style-2",
+                },
+              ]
+            },
+            {
               name: "body",
               label: "Body",
               type: "rich-text",
-            },
-            {
-              type: "object",
-              name: "styles",
-              label: "Styles",
-              templates: [
-                {
-                  type: "string",
-                  label: "Heading Font",
-                  name: "headingFont",
-                  options: [
-                    {
-                      label: "Default",
-                      value: "font-wvu-shout leading-wvu-shout",
-                    },
-                    {
-                      label: "Helvetica Neue Condensed Black",
-                      value: "font-wvu-shout leading-wvu-shout",
-                    },
-                    {
-                      label: "Helvetica Neue Bold",
-                      value: "font-helvetica-neue-bold leading-tight",
-                    },
-                    {
-                      label: "Helvetica Neue Thin",
-                      value: "font-helvetica-neue-thin leading-tight",
-                    },
-                    {
-                      label: "Iowan Old Style",
-                      value: "font-iowan-old-style leading-iowan-old-style",
-                    },
-                    {
-                      label: "Iowan Old Style Italic",
-                      value: "font-iowan-old-style-italic leading-iowan-old-style",
-                    },
-                    {
-                      label: "Iowan Old Style Black",
-                      value: "font-iowan-old-style-black leading-iowan-old-style",
-                    },
-                    {
-                      label: "Iowan Old Style Black Italic",
-                      value: "font-iowan-old-style-black-italic leading-iowan-old-style",
-                    },
-                  ]
-                },
-              ]
             },
           ]
         },

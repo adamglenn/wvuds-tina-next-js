@@ -1,23 +1,6 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - body: |
-      dfadad
-
-
-
-      asdfasdf
-    sidebar:
-      - heading: Callout 3
-        body: |
-          My body, bro.
-        _template: callout
-      - heading: Another Callout Heading
-        _template: anotherCallout
-      - heading: My Heading
-        body: ''
-        _template: callout
-    _template: contentPlus
   - tagline: Here's some text above the other text
     headline: Here is my headline new text
     text: |
@@ -30,6 +13,7 @@ blocks:
     image:
       src: /uploads/39130 S AHR 0859 XX.jpg
     backgroundPosition: bg-left-top
+    backgroundAttachment: ''
     isBackground: true
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
@@ -38,6 +22,22 @@ blocks:
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
+  - body: |
+      dfadad
+
+      asdfasdf
+    sidebar:
+      - heading: Callout 3
+        style: style-1
+        body: |
+          Cool story, bro.
+        _template: callout
+      - heading: Another Callout Heading
+        _template: anotherCallout
+      - heading: My Heading
+        body: ''
+        _template: callout
+    _template: contentPlus
   - title: Article Collection
     lede: Lede text.
     posts:
@@ -83,6 +83,12 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
 
 
 
