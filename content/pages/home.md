@@ -1,14 +1,22 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - main:
-      - body: |
-          Here is my rich text.
-        _template: richText
+  - body: |
+      dfadad
+
+
+
+      asdfasdf
     sidebar:
-      - body: |
-          Here is my sidebar text.
-        _template: richText
+      - heading: Callout 3
+        body: |
+          My body, bro.
+        _template: callout
+      - heading: Another Callout Heading
+        _template: anotherCallout
+      - heading: My Heading
+        body: ''
+        _template: callout
     _template: contentPlus
   - tagline: Here's some text above the other text
     headline: Here is my headline new text
@@ -75,6 +83,28 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

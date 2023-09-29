@@ -23,6 +23,9 @@ import { PostType } from "../../pages/posts/[filename]";
 import { tinaField } from "tinacms/dist/react";
 
 const components: Components<{
+  Callout: {
+    message: string;
+  };
   BlockQuote: {
     children: TinaMarkdownContent;
     authorName: string;
@@ -38,6 +41,21 @@ const components: Components<{
   };
 }> = {
   code_block: (props) => <Prism {...props} />,
+  Callout: (props: {
+    message: string;
+  }) => {
+    return (
+      <div className="mt-8 flex justify-center">
+        <div className="inline-flex rounded-md shadow">
+          <div
+            className="bg-wvu-gold p-12 justify-center border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+          >
+            <h2>{props.message}</h2>
+          </div>
+        </div>
+      </div>
+    )
+  },
   BlockQuote: (props: {
     children: TinaMarkdownContent;
     authorName: string;

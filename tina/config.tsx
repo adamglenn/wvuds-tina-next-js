@@ -87,6 +87,17 @@ const config = defineConfig({
             name: "_body",
             templates: [
               {
+                name: "Callout",
+                label: "Callout",
+                fields: [
+                  {
+                    name: "message",
+                    label: "Message",
+                    type: "string",
+                  }
+                ]
+              },
+              {
                 name: "DateTime",
                 label: "Date & Time",
                 inline: true,
