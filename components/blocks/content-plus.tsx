@@ -37,8 +37,8 @@ export const SidebarBlocks = ({
   switch (data.__typename) {
     case "PageBlocksContentPlusSidebarCallout":
       return (
-        <div data-tina-field={tinaField(data, "callout")}>
-          <h3>{data.heading}</h3>
+        <div className="bg-wvu-gold p-10" data-tina-field={tinaField(data, "callout")}>
+          <h3 className={`${data.styles.headingFont}`}>{data.heading}</h3>
           <TinaMarkdown content={data.body} />
         </div>
       );
@@ -61,7 +61,7 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
         size="large"
         width="large"
       >
-        <div className="grid grid-cols-2 gap-12">
+        <div className="grid grid-cols-12 gap-12">
           <div className="col-span-8" data-tina-field={tinaField(data, "body")}>
             <TinaMarkdown
               content={data.body}
@@ -128,7 +128,53 @@ export const contentPlusBlockSchema: TinaTemplate = {
               name: "body",
               label: "Body",
               type: "rich-text",
-            }
+            },
+            {
+              type: "object",
+              name: "styles",
+              label: "Styles",
+              templates: [
+                {
+                  type: "string",
+                  label: "Heading Font",
+                  name: "headingFont",
+                  options: [
+                    {
+                      label: "Default",
+                      value: "font-wvu-shout leading-wvu-shout",
+                    },
+                    {
+                      label: "Helvetica Neue Condensed Black",
+                      value: "font-wvu-shout leading-wvu-shout",
+                    },
+                    {
+                      label: "Helvetica Neue Bold",
+                      value: "font-helvetica-neue-bold leading-tight",
+                    },
+                    {
+                      label: "Helvetica Neue Thin",
+                      value: "font-helvetica-neue-thin leading-tight",
+                    },
+                    {
+                      label: "Iowan Old Style",
+                      value: "font-iowan-old-style leading-iowan-old-style",
+                    },
+                    {
+                      label: "Iowan Old Style Italic",
+                      value: "font-iowan-old-style-italic leading-iowan-old-style",
+                    },
+                    {
+                      label: "Iowan Old Style Black",
+                      value: "font-iowan-old-style-black leading-iowan-old-style",
+                    },
+                    {
+                      label: "Iowan Old Style Black Italic",
+                      value: "font-iowan-old-style-black-italic leading-iowan-old-style",
+                    },
+                  ]
+                },
+              ]
+            },
           ]
         },
         {
