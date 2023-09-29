@@ -385,6 +385,59 @@ const config = defineConfig({
           },
         ],
       },
+      {
+        name: "people",
+        label: "People",
+        path: "content/people",
+        format: "md",
+        fields: [
+          {
+            type: "string",
+            name: "name",
+            label: "Name",
+          },
+          {
+            type: "image",
+            name: "portrait",
+            label: "Portrait",
+          },
+        ]
+      },
+      {
+        name: "profiles",
+        label: "Profiles",
+        path: "content/profiles",
+        format: "md",
+        fields: [
+          {
+            type: "reference",
+            name: "person",
+            label: "Person",
+            collections: ['people'],
+          },
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+          },
+          {
+            type: "string",
+            name: "subhead",
+            label: "Subhead",
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "body",
+            isBody: true,
+          },
+          {
+            type: "image",
+            name: "heroImg",
+            label: "Hero Image",
+          },
+        ]
+      },
     ],
   },
 });

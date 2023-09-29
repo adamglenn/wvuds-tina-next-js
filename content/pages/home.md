@@ -25,7 +25,10 @@ blocks:
   - body: |
       dfadad
     sidebar:
-      - embedCode: test.
+      - embedCode: >-
+          <div id="localist-widget-52631272"
+          class="localist-widget"></div><script defer type="text/javascript"
+          src="https://cal.wvu.edu/widget/view?schools=wvu&departments=athletics&days=90&num=3&container=localist-widget-52631272&template=wvu-design-system-3-across"></script>
         _template: calendar
       - heading: Callout
         body: |
@@ -83,6 +86,7 @@ blocks:
     color: default
     _template: content
 ---
+
 
 
 
