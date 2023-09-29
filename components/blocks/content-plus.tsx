@@ -14,6 +14,12 @@ export const SidebarBlocks = ({
   data: PageBlocksContentPlusSidebar;
 }) => {
   switch (data.__typename) {
+    case "PageBlocksContentPlusSidebarProfile":
+      return (
+        <div>
+          {data.profile}
+        </div>
+      );
     case "PageBlocksContentPlusSidebarCallout":
       let containerStyles = "bg-wvu-gold text-wvu-blue";
       let headerStyles = "font-wvu-shout leading-wvu-shout text-3xl";
@@ -214,6 +220,19 @@ export const contentPlusBlockSchema: TinaTemplate = {
               type: "string",
             }
           ]
+        },
+        {
+          name: "profile",
+          label: "Profile",
+          fields: [
+            {
+              name: "selectProfile",
+              label: "Select Profile",
+              type: "reference",
+              collections: ['profiles'],
+            }
+          ]
+          
         }
       ]
     },

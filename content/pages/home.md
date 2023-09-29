@@ -25,6 +25,9 @@ blocks:
   - body: |
       dfadad
     sidebar:
+      - selectProfile: >-
+          content/profiles/when-the-streets-are-a-jungle-there-can-be-only-one-king.md
+        _template: profile
       - embedCode: >-
           <div id="localist-widget-52631272"
           class="localist-widget"></div><script defer type="text/javascript"
@@ -86,6 +89,7 @@ blocks:
     color: default
     _template: content
 ---
+
 
 
 
