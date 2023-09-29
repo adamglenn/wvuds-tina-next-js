@@ -4,30 +4,8 @@ import { Section } from "../util/section";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaMarkdownContent, Components } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
-import { PageBlocksContentPlus, PageBlocksContentPlusSidebar, SidebarComponents } from "../../tina/__generated__/types";
+import { PageBlocksContentPlus, PageBlocksContentPlusSidebar } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-
-const sidebarComponents: SidebarComponents<{
-  Styles: {
-    headerFont: string;
-  };
-}> = {
-  Styles: (data: {
-    headerFont: string;
-  }) => {
-    return (
-      <div className="mt-8 flex justify-center">
-        <div className="inline-flex rounded-md shadow">
-          <div
-            className="bg-wvu-gold p-12 justify-center border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-          >
-            <h2 className={`${data.headerFont}`}></h2>
-          </div>
-        </div>
-      </div>
-    )
-  },
-};
 
 export const SidebarBlocks = ({
   data,
@@ -36,14 +14,31 @@ export const SidebarBlocks = ({
 }) => {
   switch (data.__typename) {
     case "PageBlocksContentPlusSidebarCallout":
+      let containerStyles = "bg-wvu-gold text-wvu-blue";
+      let headerStyles = "font-wvu-shout leading-wvu-shout text-3xl";
+      if (data.styles === "style-1") {
+        containerStyles = "bg-wvu-gold text-wvu-blue";
+        headerStyles = "font-wvu-shout leading-wvu-shout text-3xl";
+      }
+      if (data.styles === "style-1") {
+        containerStyles = "bg-wvu-gold text-wvu-blue";
+        headerStyles = "font-wvu-shout leading-wvu-shout text-3xl";
+      }
+      if (data.styles === "style-2") {
+        containerStyles = "bg-wvu-blue text-white";
+        headerStyles = "font-iowan-old-style-black leading-iowan-old-style text-2xl text-wvu-gold";
+      }
+      if (data.styles === "style-3") {
+        containerStyles = "bg-wvu-accent--blue-light text-wvu-blue";
+        headerStyles = "font-helvetica-neue-light leading-tighter text-2xl";
+      }
       return (
         <div
-          className="drop-shadow-xl bg-wvu-gold p-10 mb-10"
-          data-tina-field={tinaField(data, "callout")}
+          className={`drop-shadow-xl p-10 mb-10 ${containerStyles}`}
         >
           <h3
-            className={`mt-0 mb-4 ${data.style === "style-1" ? `font-wvu-shout text-3xl text-wvu-blue leading-wvu-shout` : `font-helvetica-neue-bold leading-tighter`
-            }`}
+            className={`mt-0 mb-4 ${headerStyles}`}
+            data-tina-field={tinaField(data, "heading")}
           >
             {data.heading}
           </h3>
@@ -56,6 +51,10 @@ export const SidebarBlocks = ({
       return (
         <h3>{data.heading}</h3>
       );
+    case "PageBlocksContentPlusSidebarCalendar":
+      return (
+        <div>{data.embedCode}</div>
+      )
     default:
       return null;
   }
@@ -142,26 +141,19 @@ export const contentPlusBlockSchema: TinaTemplate = {
             {
               name: "styles",
               label: "Styles",
-              type: "object",
-              templates: [
+              type: "string",
+              options: [
                 {
-                  name: "headerFont",
-                  label: "HeaderFont",
-                  type: "string",
-                  options: [
-                    {
-                      label: "Default",
-                      value: "font-wvu-shout leading-wvu-shout text-3xl",
-                    },
-                    {
-                      label: "WVU Shout",
-                      value: "font-wvu-shout leading-wvu-shout text-3xl",
-                    },
-                    {
-                      label: "Iowan Old Style",
-                      value: "font-iowan-old-style leading-iowan-old-style text-3xl",
-                    },
-                  ]
+                  label: "Style 1",
+                  value: "style-1",
+                },
+                {
+                  label: "Style 2",
+                  value: "style-2",
+                },
+                {
+                  label: "Style 3",
+                  value: "style-3",
                 }
               ]
             }
@@ -174,6 +166,17 @@ export const contentPlusBlockSchema: TinaTemplate = {
             {
               name: "heading",
               label: "Heading",
+              type: "string",
+            }
+          ]
+        },
+        {
+          name: "calendar",
+          label: "Calendar Feed",
+          fields: [
+            {
+              name: "embedCode",
+              label: "embedCode",
               type: "string",
             }
           ]

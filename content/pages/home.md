@@ -24,13 +24,13 @@ blocks:
     _template: hero
   - body: |
       dfadad
-
-      asdfasdf
     sidebar:
-      - heading: Callout 3
-        style: style-1
+      - embedCode: test.
+        _template: calendar
+      - heading: Callout
         body: |
           Cool story, bro.
+        styles: style-2
         _template: callout
       - heading: Another Callout Heading
         _template: anotherCallout
@@ -83,6 +83,13 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
 
 
 

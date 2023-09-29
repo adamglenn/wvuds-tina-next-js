@@ -21,10 +21,10 @@ export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionPo
         <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4" data-tina-field={tinaField(data, "title")}>{data.title?.title}</h2>
       )}
       {data.title?.preview && (
-        <p className="mb-4" data-tina-field={tinaField(data, "preview")}>{data.title?.preview}</p>
+        <p className="mb-4">{data.title?.preview}</p>
       )}
       <a className="text-blue" href="#">
-        Read More <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="ml-1 -mr-1 w-6 h-6 opacity-80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg>
+        Read More <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="ml-1 -mr-1 w-6 h-6 opacity-80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg>
       </a>
     </div>
   );
