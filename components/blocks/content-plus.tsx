@@ -4,16 +4,16 @@ import { Section } from "../util/section";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaMarkdownContent, Components } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
-import { PageBlocksContentPlus, PageBlocksContentPlusSidebar, PageBlocksContentPlusBody } from "../../tina/__generated__/types";
+import { PageBlocksContentPlus, PageBlocksContentPlusSidebar, SidebarComponents } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-const components: Components<{
-  Callout: {
-    data: PageBlocksContentPlusBody;
+const sidebarComponents: SidebarComponents<{
+  Styles: {
+    headerFont: string;
   };
 }> = {
-  Callout: (data: {
-    data: PageBlocksContentPlusBody;
+  Styles: (data: {
+    headerFont: string;
   }) => {
     return (
       <div className="mt-8 flex justify-center">
@@ -21,7 +21,7 @@ const components: Components<{
           <div
             className="bg-wvu-gold p-12 justify-center border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
           >
-            <h2>{data.message}</h2>
+            <h2 className={`${data.headerFont}`}></h2>
           </div>
         </div>
       </div>
@@ -75,12 +75,13 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
           <div className="col-span-8" data-tina-field={tinaField(data, "body")}>
             <TinaMarkdown
               content={data.body}
-              components={components}
             />
           </div>
           <div className="col-span-4 not-prose">
             {data.sidebar.map(function (block, i) {
-              return <SidebarBlocks key={i} data={block} />;
+              return (
+                <SidebarBlocks key={i} data={block} />
+              )
             })}
           </div>
         </div>
@@ -134,29 +135,36 @@ export const contentPlusBlockSchema: TinaTemplate = {
               type: "string",
             },
             {
-              type: "string",
-              label: "Style",
-              name: "style",
-              options: [
-                {
-                  label: "Style 1",
-                  value: "style-1",
-                },
-                {
-                  label: "Style 2",
-                  value: "style-2",
-                },
-                {
-                  label: "Style 2",
-                  value: "style-2",
-                },
-              ]
-            },
-            {
               name: "body",
               label: "Body",
               type: "rich-text",
             },
+            {
+              name: "styles",
+              label: "Styles",
+              type: "object",
+              templates: [
+                {
+                  name: "headerFont",
+                  label: "HeaderFont",
+                  type: "string",
+                  options: [
+                    {
+                      label: "Default",
+                      value: "font-wvu-shout leading-wvu-shout text-3xl",
+                    },
+                    {
+                      label: "WVU Shout",
+                      value: "font-wvu-shout leading-wvu-shout text-3xl",
+                    },
+                    {
+                      label: "Iowan Old Style",
+                      value: "font-iowan-old-style leading-iowan-old-style text-3xl",
+                    },
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
