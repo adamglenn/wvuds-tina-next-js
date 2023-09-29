@@ -22,25 +22,6 @@ blocks:
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
-  - body: |
-      dfadad
-    sidebar:
-      - embedCode: >-
-          <div id="localist-widget-52631272"
-          class="localist-widget"></div><script defer type="text/javascript"
-          src="https://cal.wvu.edu/widget/view?schools=wvu&departments=athletics&days=90&num=3&container=localist-widget-52631272&template=wvu-design-system-3-across"></script>
-        _template: calendar
-      - heading: Callout
-        body: |
-          Cool story, bro.
-        styles: style-2
-        _template: callout
-      - heading: Another Callout Heading
-        _template: anotherCallout
-      - heading: My Heading
-        body: ''
-        _template: callout
-    _template: contentPlus
   - title: Article Collection
     lede: Lede text.
     posts:
@@ -86,6 +67,7 @@ blocks:
     color: default
     _template: content
 ---
+
 
 
 
