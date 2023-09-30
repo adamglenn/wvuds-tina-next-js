@@ -6,6 +6,7 @@ import type { TinaTemplate } from "tinacms";
 import {
   PageBlocksPostCollection,
   PageBlocksPostCollectionPosts,
+  PageBlocksPostCollectionsPostsPost
 } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
@@ -13,6 +14,7 @@ export const PostCollectionItems = ({ data }: {
   data: {
     __typename: PageBlocksPostCollectionPosts;
     post: {
+      __typename: PageBlocksPostCollectionsPostsPost;
       heroImg: string;
       title: string;
       preview: string;
@@ -27,7 +29,7 @@ export const PostCollectionItems = ({ data }: {
         ))
       )}
       {data.post?.title && (
-        <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4" data-tina-field={tinaField(data, "title")}>{data.post?.title}</h2>
+        <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4">{data.post?.title}</h2>
       )}
       {data.post?.preview && (
         <p className="mb-4">{data.post?.preview}</p>
