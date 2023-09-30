@@ -2,21 +2,20 @@ import * as React from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { useTheme } from "../layout";
+import { Post } from "../../tina/config"
 import type { TinaTemplate } from "tinacms";
 import {
   PageBlocksPostCollection,
-  PageBlocksPostCollectionPosts,
+  PageBlocksPostCollectionPost,
 } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const PostCollectionItems = ({ data }: {
+export const PostCollectionPost = ({ data }: {
   data: {
-    __typename: PageBlocksPostCollectionPosts,
-    post: {
-      heroImg: string;
-      title: string;
-      preview: string;
-    }
+    __typename: Post,
+    heroImg: string;
+    title: string;
+    preview: string;
   }
 }) => {
   return (
@@ -52,7 +51,7 @@ export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
           {data.posts &&
             data.posts.map(function (block, i) {
-              return (<PostCollectionItems key={i} data={block} />)
+              return (<PostCollectionPost key={i} data={block} />)
             })
           }
         </div>
