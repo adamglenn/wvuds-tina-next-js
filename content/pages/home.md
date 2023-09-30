@@ -22,13 +22,6 @@ blocks:
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
-  - title: Article Collection
-    lede: Lede text.
-    posts:
-      - title: content/posts/anotherPost.mdx
-      - title: content/posts/voteForPedro.mdx
-      - title: content/posts/Adams-First-Blog-Post.mdx
-    _template: postCollection
   - items:
       - icon:
           name: BiArchiveOut
