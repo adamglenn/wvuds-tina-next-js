@@ -5,13 +5,13 @@ import { useTheme } from "../layout";
 import type { TinaTemplate } from "tinacms";
 import {
   PageBlocksPostCollection,
-  PageBlocksPostCollectionPosts,
+  PageBlocksPostCollectionPostsPost,
 } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
 export const PostCollectionItems = ({ data }: {
   data: {
-    __typename: PageBlocksPostCollectionPosts,
+    __typename: PageBlocksPostCollectionPostsPost,
     post: {
       heroImg: string;
       title: string;
