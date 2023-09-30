@@ -9,12 +9,21 @@ import {
 } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const PostCollectionItems = ({ data }: { data: PageBlocksPostCollectionPosts }) => {
+export const PostCollectionItems = ({ data }: {
+  data: {
+    __typename: PageBlocksPostCollectionPosts;
+    post: {
+      heroImg: string;
+      title: string;
+      preview: string;
+    }
+  }
+}) => {
   return (
     <div>
       {data.post?.heroImg && (
-        (data.title?.heroImg && (
-          <figure className="mb-4"><img src={data.title?.heroImg} /></figure>
+        (data.post?.heroImg && (
+          <figure className="mb-4"><img src={data.post?.heroImg} /></figure>
         ))
       )}
       {data.post?.title && (
