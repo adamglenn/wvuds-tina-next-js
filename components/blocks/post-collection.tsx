@@ -10,7 +10,7 @@ import {
 } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const PostCollectionPost = ({ data }: { data: Post }) => {
+export const PostCollectionPost = ({ data }: { data: PageBlocksPostCollectionPosts }) => {
   return (
     <div>
       {data.heroImg && (
@@ -34,13 +34,19 @@ export const PostCollectionPost = ({ data }: { data: Post }) => {
 export const PostCollection = ({ data }: { data: PageBlocksPostCollectionPosts }) => {
   const theme = useTheme();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
-      {data &&
-        data.map(function (block, i) {
-          return (<PostCollectionPost key={i} data={block} />)
-        })
-      }
-    </div>
+    <Section className="flex-1">
+      <Container
+        size="large"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
+          {data &&
+            data.posts.map(function (block, i) {
+              return (<PostCollectionPost key={i} data={block} />)
+            })
+          }
+        </div>
+      </Container>
+    </Section>
   );
 };
 
