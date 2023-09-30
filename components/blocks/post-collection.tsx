@@ -27,7 +27,7 @@ export const PostCollectionItems = ({ data }: {
         ))
       )}
       {data.post.title && (
-        <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4" data-tina-field={tinaField(data, "title")}>{data.post.title}</h2>
+        <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4">{data.post.title}</h2>
       )}
       {data.post.preview && (
         <p className="mb-4">{data.post.preview}</p>
@@ -51,7 +51,7 @@ export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => 
         )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
           {data.posts &&
-            data.posts?.map(function (block, i) {
+            data.posts.map(function (block, i) {
               return (<PostCollectionItems key={i} data={block} />)
             })
           }
@@ -86,7 +86,7 @@ export const postCollectionBlockSchema: TinaTemplate = {
       fields: [
         {
           type: "reference",
-          name: "title",
+          name: "post",
           collections: ['post']
         },
       ],
