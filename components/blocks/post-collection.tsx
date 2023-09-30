@@ -2,17 +2,16 @@ import * as React from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { useTheme } from "../layout";
-import { Post } from "../../tina/config"
 import type { TinaTemplate } from "tinacms";
 import {
   PageBlocksPostCollection,
-  PageBlocksPostCollectionPost,
+  PageBlocksPostCollectionPostsPost,
 } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
 export const PostCollectionPost = ({ data }: {
   data: {
-    __typename: Post,
+    __typename: PageBlocksPostCollectionPostsPost,
     heroImg: string;
     title: string;
     preview: string;
@@ -20,16 +19,16 @@ export const PostCollectionPost = ({ data }: {
 }) => {
   return (
     <div>
-      {data.post.heroImg && (
-        (data.post.heroImg && (
-          <figure className="mb-4"><img src={data.post.heroImg} /></figure>
+      {data.heroImg && (
+        (data.heroImg && (
+          <figure className="mb-4"><img src={data.heroImg} /></figure>
         ))
       )}
-      {data.post.title && (
-        <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4">{data.post.title}</h2>
+      {data.title && (
+        <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4">{data.title}</h2>
       )}
-      {data.post.preview && (
-        <p className="mb-4">{data.post.preview}</p>
+      {data.preview && (
+        <p className="mb-4">{data.preview}</p>
       )}
       <a className="text-blue" href="#">
         Read More <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="ml-1 -mr-1 w-6 h-6 opacity-80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg>
