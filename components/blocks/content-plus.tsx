@@ -11,7 +11,7 @@ import useScript from '../util/calendar';
 export const MainBlocks = ({
   data,
 }: {
-  data: PageBlocksContentPlusMain;
+  data: any;
 }) => {
   switch (data.__typename) {
     case "PageBlocksContentPlusMainRichText":
@@ -123,7 +123,7 @@ export const MainBlocks = ({
 export const SidebarBlocks = ({
   data,
 }: {
-  data: PageBlocksContentPlusSidebar;
+  data: any;
 }) => {
   switch (data.__typename) {
     case "PageBlocksContentPlusSidebarProfile":
@@ -225,7 +225,7 @@ export const SidebarBlocks = ({
   }
 }
 
-export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
+export const ContentPlus = ({ data }: { data: any }) => {
   return (
     <Section color={data.color}>
       <Container
