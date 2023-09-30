@@ -20,13 +20,6 @@ blocks:
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
-  - title: My Bog Posts
-    lede: Lede Text
-    posts:
-      - title: content/posts/voteForPedro.mdx
-      - title: content/posts/anotherPost.mdx
-      - title: content/posts/Adams-First-Blog-Post.mdx
-    _template: postCollection
   - items:
       - icon:
           name: ''

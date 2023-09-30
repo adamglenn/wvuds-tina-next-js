@@ -20,7 +20,6 @@ blocks:
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
-  - _template: postCollection
   - items:
       - icon:
           name: ''
