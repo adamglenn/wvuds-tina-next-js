@@ -1,5 +1,5 @@
 ---
-person: content/people/jean-claude-van-damme.md
+person: content/people/frank-dux.md
 title: When the Streets are a Jungle... There Can Be Only One King
 subhead: Don’t Hunt What You Can’t Kill
 heroImg: /uploads/kick-face.webp
