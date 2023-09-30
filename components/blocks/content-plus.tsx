@@ -14,9 +14,16 @@ export const MainBlocks = ({
   data: PageBlocksContentPlusMain;
 }) => {
   switch (data.__typename) {
+    case "PageBlocksContentPlusMainRichText":
+      return (
+        <div className="prose">
+          <TinaMarkdown content={data.textBlock} />
+        </div>
+      )
     case "PageBlocksContentPlusMainProfile":
+      console.log("Main Profile:" + (data))
       const backgroundStyle = {
-        backgroundImage: "url('" + data.selectProfile.heroImg + "') !important"
+        backgroundImage: "url('" + data.selectProfile?.heroImg + "') !important"
       }
       console.log(data.selectProfile)
       return (
@@ -25,11 +32,11 @@ export const MainBlocks = ({
           style={backgroundStyle}
         >
           <div className="pb-72">
-            <h2 className="font-wvu-shout leading-wvu-shout text-wvu-gold text-3xl mb-3">{data.selectProfile.title}</h2>
-            <p className="uppercase text-md font-iowan-old-style-black tracking-wide leading-iowan-old-style">{data.selectProfile.subhead}</p>
+            <h2 className="font-wvu-shout leading-wvu-shout text-wvu-gold text-3xl mb-3">{data.selectProfile?.title}</h2>
+            <p className="uppercase text-md font-iowan-old-style-black tracking-wide leading-iowan-old-style">{data.selectProfile?.subhead}</p>
           </div>
           <div>
-            <h3>{data.selectProfile.person.name}</h3>
+            <h3>{data.selectProfile?.person?.name}</h3>
           </div>
         </div>
       );
@@ -121,7 +128,7 @@ export const SidebarBlocks = ({
   switch (data.__typename) {
     case "PageBlocksContentPlusSidebarProfile":
       const backgroundStyle = {
-        backgroundImage: "url('" + data.selectProfile.heroImg + "') !important"
+        backgroundImage: "url('" + data.selectProfile?.heroImg + "') !important"
       }
       console.log(data.selectProfile)
       return (
@@ -130,11 +137,11 @@ export const SidebarBlocks = ({
           style={backgroundStyle}
         >
           <div className="pb-72">
-            <h2 className="font-wvu-shout leading-wvu-shout text-wvu-gold text-3xl mb-3">{data.selectProfile.title}</h2>
-            <p className="uppercase text-md font-iowan-old-style-black tracking-wide leading-iowan-old-style">{data.selectProfile.subhead}</p>
+            <h2 className="font-wvu-shout leading-wvu-shout text-wvu-gold text-3xl mb-3">{data.selectProfile?.title}</h2>
+            <p className="uppercase text-md font-iowan-old-style-black tracking-wide leading-iowan-old-style">{data.selectProfile?.subhead}</p>
           </div>
           <div>
-            <h3>{data.selectProfile.person.name}</h3>
+            <h3>{data.selectProfile?.person?.name}</h3>
           </div>
         </div>
       );
@@ -229,15 +236,15 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
         width="large"
       >
         <div className="grid grid-cols-12 gap-12">
-          <div className="col-span-8" data-tina-field={tinaField(data, "body")}>
-            {data.main.map(function (block, i) {
+          <div className="col-span-8 not-prose">
+            {data.main?.map(function (block, i) {
               return (
                 <MainBlocks key={i} data={block} />
               )
             })}
           </div>
           <div className="col-span-4 not-prose">
-            {data.sidebar.map(function (block, i) {
+            {data.sidebar?.map(function (block, i) {
               return (
                 <SidebarBlocks key={i} data={block} />
               )

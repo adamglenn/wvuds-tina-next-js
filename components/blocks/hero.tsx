@@ -8,7 +8,7 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 
-export const Hero = ({ data }: { data: PageBlocksHero }) => {
+export const Hero = ({ data }: { data: PageBlocksHero; }) => {
   const theme = useTheme();
   const backgroundStyle = {
     backgroundImage: "url('" + data.image?.src + "') !important"
@@ -63,7 +63,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
               >
                 {data.styles && (
                   <span
-                    className={`block ${data.styles.headlineDecoration} ${data.styles.headlineColor} ${data.styles.headlineSize} ${data.styles.headlineFont}`}
+                    className={`block ${data.styles?.headlineDecoration} ${data.styles?.headlineColor} ${data.styles?.headlineSize} ${data.styles?.headlineFont}`}
                   >
                     {data.headline}
                   </span>

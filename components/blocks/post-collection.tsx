@@ -42,7 +42,7 @@ export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => 
         )}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
           {data.posts &&
-            data.posts.map(function (block, i) {
+            data.posts?.map(function (block, i) {
               return (<PostCollectionItems key={i} data={block} />)
             })
           }

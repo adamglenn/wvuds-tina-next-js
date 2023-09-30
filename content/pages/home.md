@@ -22,8 +22,18 @@ blocks:
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
-  - body: |
-      dfadad
+  - main:
+      - selectProfile: >-
+          content/profiles/when-the-streets-are-a-jungle-there-can-be-only-one-king.md
+        _template: profile
+      - heading: asdfadsf
+        styles: style-3
+        _template: callout
+      - heading: adsfasdf
+        _template: callout
+      - textBlock: |
+          afdadf
+        _template: richText
     sidebar:
       - selectProfile: >-
           content/profiles/when-the-streets-are-a-jungle-there-can-be-only-one-king.md
@@ -89,6 +99,18 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
