@@ -4,14 +4,37 @@ import { Section } from "../util/section";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaMarkdownContent, Components } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
-import { PageBlocksContentPlus, PageBlocksContentPlusSidebar, PageBlocksContentPlusMain } from "../../tina/__generated__/types";
+import {
+  PageBlocksContentPlus,
+  PageBlocksContentPlusSidebar,
+  PageBlocksContentPlusMain,
+  PageBlocksContentPlusMainProfile,
+  PageBlocksContentPlusSidebarCallout,
+  PageBlocksContentPlusSidebarAnotherCallout,
+  PageBlocksContentPlusSidebarCalendar,
+  PageBlocksContentPlusSidebarProfile,
+} from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 import useScript from '../util/calendar';
 
 export const MainBlocks = ({
   data,
 }: {
-  data: PageBlocksContentPlusMain;
+  data: {
+    __typename: PageBlocksContentPlusMain;
+    textBlock: any;
+    selectProfile: {
+      title: string;
+      subhead: string;
+      heroImg: string;
+      person: {
+        name: string;
+      }
+    };
+    styles: string;
+    heading: string;
+    body: any;
+  }
 }) => {
   switch (data.__typename) {
     case "PageBlocksContentPlusMainRichText":
@@ -123,7 +146,21 @@ export const MainBlocks = ({
 export const SidebarBlocks = ({
   data,
 }: {
-  data: PageBlocksContentPlusSidebar;
+  data: {
+    __typename: PageBlocksContentPlusSidebar;
+    textBlock: any;
+    selectProfile: {
+      title: string;
+      subhead: string;
+      heroImg: string;
+      person: {
+        name: string;
+      }
+    };
+    styles: string;
+    heading: string;
+    body: any;
+  }
 }) => {
   switch (data.__typename) {
     case "PageBlocksContentPlusSidebarProfile":
@@ -225,7 +262,15 @@ export const SidebarBlocks = ({
   }
 }
 
-export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
+export const ContentPlus = ({ data 
+}: {
+  data: {
+    __typename: PageBlocksContentPlus;
+    color: string;
+    main: any;
+    sidebar: any;
+  }
+}) => {
   return (
     <Section color={data.color}>
       <Container

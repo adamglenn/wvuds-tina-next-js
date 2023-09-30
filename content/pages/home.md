@@ -26,10 +26,12 @@ blocks:
       - selectProfile: >-
           content/profiles/when-the-streets-are-a-jungle-there-can-be-only-one-king.md
         _template: profile
-      - heading: asdfadsf
+      - heading: asdfadsfff
+        body: ''
         styles: style-3
         _template: callout
       - heading: adsfasdf
+        body: ''
         _template: callout
       - textBlock: |
           afdadf
@@ -99,6 +101,7 @@ blocks:
     color: default
     _template: content
 ---
+
 
 
 
