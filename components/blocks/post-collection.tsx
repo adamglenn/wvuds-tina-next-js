@@ -31,25 +31,16 @@ export const PostCollectionPost = ({ data }: { data: Post }) => {
   );
 };
 
-export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => {
+export const PostCollection = ({ data }: { data: PageBlocksPostCollectionPosts }) => {
   const theme = useTheme();
   return (
-    <Section className="flex-1">
-      <Container
-        size="large"
-      >
-        {data && (
-          <h2 className="font-wvu-shout leading-wvu-shout text-6xl text-wvu-blue wvu-bar mb-12">My {data.title}</h2>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
-          {data.posts &&
-            data.posts.map(function (block, i) {
-              return (<PostCollectionPost key={i} data={block} />)
-            })
-          }
-        </div>
-      </Container>
-    </Section>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
+      {data &&
+        data.map(function (block, i) {
+          return (<PostCollectionPost key={i} data={block} />)
+        })
+      }
+    </div>
   );
 };
 
