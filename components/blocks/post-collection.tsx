@@ -40,13 +40,6 @@ export const PostCollection = ({ data }: { data: PageBlocksPostCollection }) => 
         {data && (
           <h2 className="font-wvu-shout leading-wvu-shout text-6xl text-wvu-blue wvu-bar mb-12">My {data.title}</h2>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
-          {data.posts &&
-            data.posts?.map(function (block, i) {
-              return (<PostCollectionItems key={i} data={block} />)
-            })
-          }
-        </div>
       </Container>
     </Section>
   );
@@ -68,19 +61,6 @@ export const postCollectionBlockSchema: TinaTemplate = {
       type: "string",
       label: "Lede",
       name: "lede",
-    },
-    {
-      name: "posts",
-      label: "Posts",
-      type: "object",
-      list: true,
-      fields: [
-        {
-          type: "reference",
-          name: "title",
-          collections: ['post']
-        },
-      ],
     },
   ],
 };
