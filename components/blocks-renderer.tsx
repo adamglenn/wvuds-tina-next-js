@@ -34,8 +34,6 @@ const Block = (block: PageBlocks) => {
       return <Features data={block} />;
     case "PageBlocksTestimonial":
       return <Testimonial data={block} />;
-    case "PageBlocksPostCollection":
-      return <PostCollection data={block} />;
     default:
       return null;
   }

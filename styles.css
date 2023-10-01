@@ -43,6 +43,14 @@
     font-family:"IowanOldStyleW01-BlackI";
     src:url("Fonts/83c03022-495c-46c5-9720-1921c37edb2b.woff2") format("woff2"),url("Fonts/702591b0-4649-4812-88b0-406590f969e6.woff") format("woff");
   }
+  @font-face{
+    font-family:"IowanOldStyleW01-BlackI";
+    src:url("Fonts/83c03022-495c-46c5-9720-1921c37edb2b.woff2") format("woff2"),url("Fonts/702591b0-4649-4812-88b0-406590f969e6.woff") format("woff");
+  }
+  @font-face{
+    font-family:"OliviarSansBlackEx";
+    src:url("Fonts/OliviarSansBlackEx.woff2") format("woff2"),url("Fonts/OliviarSansBlackEx.woff") format("woff");
+  }
 }
 
 @layer utilities {
@@ -76,7 +84,16 @@
     top: 0rem !important;
     width: 7rem !important;
   }
-  .wvu-bar.wvu-bar--bottom {
-
+  .wvu-experimental {
+    -webkit-text-stroke:#4b5563;
+    -webkit-text-stroke-width:1px;
+    stroke-width:1px;
+    -webkit-text-fill-color: transparent;
+    top: -1rem;
+    left: .25rem;
+    width: 100%;
+  }
+  .text-shadow {
+    text-shadow: -5px 5px 0px #000000;
   }
 }

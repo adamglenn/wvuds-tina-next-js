@@ -56,6 +56,12 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 <span className="absolute w-full h-full left-0 top-0 rounded-full -z-1 bg-current opacity-7"></span>
               </h2>
             )}
+            <div>
+              <h2 className="font-oliviar-sans-black-extended inline relative text-7xl uppercase leading-tight">
+                <span aria-hidden="true" className="wvu-experimental absolute">My Headline</span>
+                <span className="text-shadow">My Headline</span>
+              </h2>
+            </div>
             {data.headline && (
               <h3
                 data-tina-field={tinaField(data, "headline")}
@@ -279,6 +285,44 @@ export const heroBlockSchema: TinaTemplate = {
             {
               label: "Iowan Old Style Black Italic",
               value: "font-iowan-old-style-black-italic leading-iowan-old-style",
+            },
+          ]
+        },
+        {
+          type: "string",
+          label: "Typography",
+          name: "typography",
+          options: [
+            {
+              label: "Style 1",
+              value: "style-1",
+            },
+            {
+              label: "Style 2",
+              value: "style-2",
+            },
+            {
+              label: "Style 3",
+              value: "style-3",
+            },
+          ]
+        },
+        {
+          type: "string",
+          label: "Elements",
+          name: "elements",
+          options: [
+            {
+              label: "Style 1",
+              value: "style-1",
+            },
+            {
+              label: "Style-2",
+              value: "style-2",
+            },
+            {
+              label: "Style-3",
+              value: "style-3",
             },
           ]
         },

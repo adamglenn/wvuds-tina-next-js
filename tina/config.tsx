@@ -298,6 +298,21 @@ const config = defineConfig({
               },
               {
                 type: "string",
+                name: "typeAndElements",
+                label: "Typography and Elements",
+                options: [
+                  {
+                    label: "Standard",
+                    value: "standard",
+                  },
+                  {
+                    label: "Recruitment",
+                    value: "recruitment",
+                  },
+                ]
+              },
+              {
+                type: "string",
                 name: "darkMode",
                 label: "Dark Mode",
                 options: [

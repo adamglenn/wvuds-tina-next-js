@@ -128,6 +128,7 @@ module.exports = {
         "iowan-old-style-black": "'IowanOldStyleW01-Black'",
         "iowan-old-style-black-italic": "'IowanOldStyleW01-BlackI'",
         "iowan-old-style-italic": "'IowanOldStyleW01-Italic1120392'",
+        "oliviar-sans-black-extended": "'OliviarSansBlackEx'",
       },
       typography: (theme) => ({
         DEFAULT: {

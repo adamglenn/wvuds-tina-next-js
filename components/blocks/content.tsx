@@ -38,6 +38,7 @@ export const contentBlockSchema: TinaTemplate = {
       type: "rich-text",
       label: "Body",
       name: "body",
+      isBody: true,
     },
     {
       type: "string",
