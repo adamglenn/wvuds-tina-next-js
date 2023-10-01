@@ -1,10 +1,14 @@
 ---
 title: Tina Cloud Starter
 blocks:
+  - title: New Post Collection
+    posts:
+      - title: content/posts/Adams-First-Blog-Post.mdx
+    _template: postCollection
   - title: Post Collection
     lede: adf
     posts:
-      - post: content/posts/Adams-First-Blog-Post.mdx
+      - title: content/posts/anotherPost.mdx
     _template: postCollection
   - tagline: Here's some text above the other text
     headline: Here is my headline new text
@@ -65,6 +69,8 @@ blocks:
     color: default
     _template: content
 ---
+
+
 
 
 
