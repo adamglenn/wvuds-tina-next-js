@@ -378,6 +378,7 @@ const config = defineConfig({
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,
+              // @ts-ignore
               postCollectionBlockSchema,
             ],
           },
