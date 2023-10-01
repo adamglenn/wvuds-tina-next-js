@@ -1,10 +1,6 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - title: New Post Collection
-    posts:
-      - post: content/posts/Adams-First-Blog-Post.mdx
-    _template: postCollection
   - tagline: Here's some text above the other text
     headline: Here is my headline new text
     text: |
