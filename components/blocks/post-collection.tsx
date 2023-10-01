@@ -12,6 +12,7 @@ import { tinaField } from "tinacms/dist/react";
 
 export const PostCollectionItems = ({ data }: {
   data: {
+    __typename: PageBlocksPostCollectionPostsPost;
     post: {
       heroImg: string;
       title: string;
