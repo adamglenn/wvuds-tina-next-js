@@ -2,43 +2,48 @@ import * as React from "react";
 import { Actions } from "../util/actions";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
-import { useTheme } from "../layout";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
+import { ColorPickerInput } from "../../tina/fields/color";
 import GlobalData from "../../content/global/index.json";
 
-export const Hero = ({ data, themeData, }: { data: PageBlocksHero; themeData: GlobalData }) => {
-  const theme = useTheme();
+export const Hero = ({ data }: { data: PageBlocksHero }) => {
+  const theme = GlobalData.theme;
+  
   const backgroundStyle = {
     backgroundImage: "url('" + data.image?.src + "') !important"
   }
+  
   const baseOverlayClasses = "text-white row-start-2 md:row-start-1 md:col-span-3 text-center md:text-left my-32"
   const overlayClasses = data.isBackground
   let overlayStyles = ""
+  
   if (overlayClasses) {
     overlayStyles = "backdrop-blur-sm bg-black/30 p-12 " + baseOverlayClasses
   } else {
     overlayStyles = baseOverlayClasses
   }
+  
   let headlineClasses = ""
   let subheadClasses = ""
+
   if (theme.typeAndElements === "recruitment") {
     if (data.styles.typography === "style-1") {
-      headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+      headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
      } else if (data.styles.typography === "style-2") {
-      headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+      headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
      } else if (data.styles.typography === "style-3") {
-      headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+      headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
      }
   } else {
     if (data.styles.typography === "style-1") {
-      headlineClasses = "font-wvu-shout leading-wvu-shout text-5xl";
+      headlineClasses = "font-wvu-shout leading-wvu-shout";
      } else if (data.styles.typography === "style-2") {
-      headlineClasses = "font-iowan-old-style-black leading-iowan-old-style text-5xl";
+      headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
      } else if (data.styles.typography === "style-3") {
-      headlineClasses = "font-iowan-old-style-black-italic leading-iowan-old-style text-5xl";
+      headlineClasses = "font-iowan-old-style-black-italic leading-iowan-old-style";
      }
   }
   
@@ -76,18 +81,6 @@ export const Hero = ({ data, themeData, }: { data: PageBlocksHero; themeData: Gl
                 <span className="absolute w-full h-full left-0 top-0 rounded-full -z-1 bg-current opacity-7"></span>
               </h2>
             )}
-            <div>
-              <h2 className="font-oliviar-sans-black-extended inline relative text-7xl uppercase leading-oliviar">
-                <span aria-hidden="true" className="wvu-experimental absolute">My Headline</span>
-                <span className="text-shadow">My Headline</span>
-              </h2>
-            </div>
-            {/* <div>
-              <p className="font-oliviar-sans-black-extended inline relative text-7xl uppercase leading-tight">
-                <span aria-hidden="true" className="wvu-experimental absolute">My Subhead</span>
-                <span className="text-shadow">My Subhead</span>
-              </p>
-            </div> */}
             {data.headline && (
               <h3
                 data-tina-field={tinaField(data, "headline")}
@@ -289,6 +282,7 @@ export const heroBlockSchema: TinaTemplate = {
       type: "object",
       name: "styles",
       label: "Styles",
+      // @ts-ignore
       fields: [
         {
           type: "string",
@@ -346,37 +340,11 @@ export const heroBlockSchema: TinaTemplate = {
         },
         {
           type: "string",
-          label: "Elements",
-          name: "elements",
-          options: [
-            {
-              label: "Style 1",
-              value: "style-1",
-            },
-            {
-              label: "Style-2",
-              value: "style-2",
-            },
-            {
-              label: "Style-3",
-              value: "style-3",
-            },
-          ]
-        },
-        {
-          type: "string",
           label: "Headline Color",
           name: "headlineColor",
-          options: [
-            {
-              label: "WVU Gold",
-              value: "text-wvu-gold",
-            },
-            {
-              label: "WVU Blue",
-              value: "text-wvu-blue",
-            },
-          ]
+          ui: {
+            component: ColorPickerInput,
+          }
         },
         {
           type: "string",
@@ -394,6 +362,25 @@ export const heroBlockSchema: TinaTemplate = {
             {
               label: "Small",
               value: "text-5xl",
+            },
+          ]
+        },
+        {
+          type: "string",
+          label: "Elements",
+          name: "elements",
+          options: [
+            {
+              label: "Style 1",
+              value: "style-1",
+            },
+            {
+              label: "Style-2",
+              value: "style-2",
+            },
+            {
+              label: "Style-3",
+              value: "style-3",
             },
           ]
         },

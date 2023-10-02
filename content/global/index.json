@@ -33,7 +33,7 @@
   "theme": {
     "color": "blue",
     "font": "sans",
-    "typeAndElements": "recruitment",
+    "typeAndElements": "standard",
     "darkMode": "system"
   }
 }

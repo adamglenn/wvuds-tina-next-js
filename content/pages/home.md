@@ -12,14 +12,14 @@ blocks:
         link: /
     image:
       src: /uploads/39130 S AHR 0859 XX.jpg
-    backgroundPosition: bg-left-top
+    backgroundPosition: bg-center
     backgroundAttachment: ''
     isBackground: true
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
-      typography: style-3
+      typography: style-2
       headlineColor: ''
-      headlineSize: text-7xl
+      headlineSize: text-6xl
       headlineDecoration: wvu-bar
     color: primary
     _template: hero
@@ -78,6 +78,9 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
 
 
 
