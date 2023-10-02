@@ -31,19 +31,19 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   let headlineColor = ""
 
   if (theme.typeAndElements === "recruitment") {
-    if (data.styles.typography === "style-1") {
+    if (data.styles.typographyPalette === "style-1") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
-     } else if (data.styles.typography === "style-2") {
+     } else if (data.styles.typographyPalette === "style-2") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
-     } else if (data.styles.typography === "style-3") {
+     } else if (data.styles.typographyPalette === "style-3") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
      }
   } else {
-    if (data.styles.typography === "style-1") {
+    if (data.styles.typographyPalette === "style-1") {
       headlineClasses = "font-wvu-shout leading-wvu-shout";
-     } else if (data.styles.typography === "style-2") {
+     } else if (data.styles.typographyPalette === "style-2") {
       headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
-     } else if (data.styles.typography === "style-3") {
+     } else if (data.styles.typographyPalette === "style-3") {
       headlineClasses = "font-iowan-old-style-black-italic leading-iowan-old-style";
      }
   }
@@ -340,8 +340,8 @@ export const heroBlockSchema: TinaTemplate = {
         },
         {
           type: "string",
-          label: "Typography",
-          name: "typography",
+          label: "Typography Palette",
+          name: "typographyPalette",
           options: [
             {
               label: "Style 1",

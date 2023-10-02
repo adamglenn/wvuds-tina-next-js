@@ -17,7 +17,7 @@ blocks:
     isBackground: true
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
-      typography: style-2
+      typographyPalette: style-2
       headlineColor: '#FFFFFF'
       headlineSize: text-6xl
       headlineDecoration: wvu-bar
