@@ -89,11 +89,11 @@
     -webkit-text-stroke-width:1px;
     stroke-width:1px;
     -webkit-text-fill-color: transparent;
-    top: -1rem;
-    left: .25rem;
+    top: -.01em;
+    left: .04em;
     width: 100%;
   }
   .text-shadow {
-    text-shadow: -5px 5px 0px #000000;
+    text-shadow: -.05em .05em 0px #000000;
   }
 }

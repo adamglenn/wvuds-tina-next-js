@@ -7,8 +7,9 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
+import { Global } from "../../tina/__generated__/types";
 
-export const Hero = ({ data }: { data: PageBlocksHero }) => {
+export const Hero = ({ data, themeData }: { data: PageBlocksHero; themeData?: Omit<Global, "id" | "_sys" | "_values"> }) => {
   const theme = useTheme();
   const backgroundStyle = {
     backgroundImage: "url('" + data.image?.src + "') !important"
@@ -20,6 +21,27 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     overlayStyles = "backdrop-blur-sm bg-black/30 p-12 " + baseOverlayClasses
   } else {
     overlayStyles = baseOverlayClasses
+  }
+  let headlineClasses = ""
+  let subheadClasses = ""
+  if (themeData.theme.typeAndElements === "recruitment") {
+    switch (data.styles.typography) {
+      case "style-1":
+        headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+      case "style-2":
+        headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+      case "style-3":
+        headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+    }
+  } else {
+    switch (data.styles.typography) {
+      case "style-1":
+        headlineClasses = "font-wvu-shout leading-wvu-shout text-5xl";
+      case "style-2":
+        headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
+      case "style-3":
+        headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
+    }
   }
   
   const headlineColorClasses = {
@@ -57,11 +79,17 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
               </h2>
             )}
             <div>
-              <h2 className="font-oliviar-sans-black-extended inline relative text-7xl uppercase leading-tight">
+              <h2 className="font-oliviar-sans-black-extended inline relative text-7xl uppercase leading-oliviar">
                 <span aria-hidden="true" className="wvu-experimental absolute">My Headline</span>
                 <span className="text-shadow">My Headline</span>
               </h2>
             </div>
+            {/* <div>
+              <p className="font-oliviar-sans-black-extended inline relative text-7xl uppercase leading-tight">
+                <span aria-hidden="true" className="wvu-experimental absolute">My Subhead</span>
+                <span className="text-shadow">My Subhead</span>
+              </p>
+            </div> */}
             {data.headline && (
               <h3
                 data-tina-field={tinaField(data, "headline")}
@@ -69,7 +97,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
               >
                 {data.styles && (
                   <span
-                    className={`block ${data.styles?.headlineDecoration} ${data.styles?.headlineColor} ${data.styles?.headlineSize} ${data.styles?.headlineFont}`}
+                    className={`block ${data.styles?.headlineDecoration} ${data.styles?.headlineColor} ${data.styles?.headlineSize} ${headlineClasses}`}
                   >
                     {data.headline}
                   </span>
@@ -121,6 +149,11 @@ export const heroBlockSchema: TinaTemplate = {
       type: "string",
       label: "Headline",
       name: "headline",
+    },
+    {
+      type: "string",
+      label: "Subhead",
+      name: "subhead",
     },
     {
       label: "Text",

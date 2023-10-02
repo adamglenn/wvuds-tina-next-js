@@ -103,6 +103,7 @@ module.exports = {
       lineHeight: {
         "wvu-shout": "0.80487em",
         "iowan-old-style": "1.16666666667em",
+        "oliviar": "1.2em",
       },
       textDecoration: ["active"],
       opacity: {
