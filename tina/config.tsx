@@ -452,6 +452,30 @@ const config = defineConfig({
           },
         ]
       },
+      {
+        name: "calendars",
+        label: "Calendars",
+        path: "content/calendars",
+        fields: [
+          {
+            name: "title",
+            label: "Title",
+            type: "string",
+          },
+          {
+            type: "string",
+            name: "widgetId",
+            label: "Widget ID",
+            description: "asdaf"
+          },
+          {
+            type: "string",
+            name: "javascriptSrc",
+            label: "Javascript SRC",
+            description: "asdaf"
+          },
+        ]
+      }
     ],
   },
 });

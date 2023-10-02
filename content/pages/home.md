@@ -39,6 +39,8 @@ blocks:
       - textBlock: |
           asdfasd
         _template: richText
+    sidebar:
+      - _template: calendar
     _template: contentPlus
   - items:
       - icon:
@@ -78,6 +80,7 @@ blocks:
     color: default
     _template: content
 ---
+
 
 
 
