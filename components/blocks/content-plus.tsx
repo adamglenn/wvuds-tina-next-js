@@ -27,7 +27,7 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
           <div className="col-span-4 not-prose">
             {data.sidebar?.map(function (block, i) {
               return (
-                <SidebarBlocks key={i} data={block as any} />
+                <SidebarBlocks key={i} data={block} />
               )
             })}
           </div>

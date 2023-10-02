@@ -306,7 +306,7 @@ const config = defineConfig({
                     value: "standard",
                   },
                   {
-                    label: "Recruitment",
+                    label: "Recruitment-Focused",
                     value: "recruitment",
                   },
                 ]
