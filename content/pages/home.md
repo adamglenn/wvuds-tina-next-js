@@ -17,6 +17,7 @@ blocks:
     isBackground: true
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
+      typography: style-3
       headlineColor: ''
       headlineSize: text-7xl
       headlineDecoration: wvu-bar
@@ -77,6 +78,11 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
 
 
 

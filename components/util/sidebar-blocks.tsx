@@ -14,7 +14,6 @@ export const SidebarBlocks = ({
       const backgroundStyle = {
         backgroundImage: "url('" + data.selectProfile?.heroImg + "') !important"
       }
-      console.log(data.selectProfile)
       return (
         <div
           className="p-5 bg-black text-white bg-cover"

@@ -7,9 +7,9 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import { Global } from "../../tina/__generated__/types";
+import GlobalData from "../../content/global/index.json";
 
-export const Hero = ({ data, themeData }: { data: PageBlocksHero; themeData?: Omit<Global, "id" | "_sys" | "_values"> }) => {
+export const Hero = ({ data, themeData, }: { data: PageBlocksHero; themeData: GlobalData }) => {
   const theme = useTheme();
   const backgroundStyle = {
     backgroundImage: "url('" + data.image?.src + "') !important"
@@ -24,24 +24,22 @@ export const Hero = ({ data, themeData }: { data: PageBlocksHero; themeData?: Om
   }
   let headlineClasses = ""
   let subheadClasses = ""
-  if (themeData.theme.typeAndElements === "recruitment") {
-    switch (data.styles.typography) {
-      case "style-1":
-        headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
-      case "style-2":
-        headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
-      case "style-3":
-        headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
-    }
+  if (theme.typeAndElements === "recruitment") {
+    if (data.styles.typography === "style-1") {
+      headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+     } else if (data.styles.typography === "style-2") {
+      headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+     } else if (data.styles.typography === "style-3") {
+      headlineClasses = "oliviar-sans-black-extended leading-oliviar-sans text-5xl";
+     }
   } else {
-    switch (data.styles.typography) {
-      case "style-1":
-        headlineClasses = "font-wvu-shout leading-wvu-shout text-5xl";
-      case "style-2":
-        headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
-      case "style-3":
-        headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
-    }
+    if (data.styles.typography === "style-1") {
+      headlineClasses = "font-wvu-shout leading-wvu-shout text-5xl";
+     } else if (data.styles.typography === "style-2") {
+      headlineClasses = "font-iowan-old-style-black leading-iowan-old-style text-5xl";
+     } else if (data.styles.typography === "style-3") {
+      headlineClasses = "font-iowan-old-style-black-italic leading-iowan-old-style text-5xl";
+     }
   }
   
   const headlineColorClasses = {
@@ -97,9 +95,15 @@ export const Hero = ({ data, themeData }: { data: PageBlocksHero; themeData?: Om
               >
                 {data.styles && (
                   <span
-                    className={`block ${data.styles?.headlineDecoration} ${data.styles?.headlineColor} ${data.styles?.headlineSize} ${headlineClasses}`}
+                    className={`
+                      block
+                      ${data.styles?.headlineDecoration}
+                      ${data.styles?.headlineColor}
+                      ${data.styles?.headlineSize}
+                      ${headlineClasses}
+                    `}
                   >
-                    {data.headline}
+                    {data.headline} {console.log("Theme: " + theme.typeAndElements)}
                   </span>
                 )}
               </h3>

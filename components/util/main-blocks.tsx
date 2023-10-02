@@ -17,7 +17,6 @@ export const MainBlocks = ({
         </div>
       )
     case "PageBlocksContentPlusMainProfile":
-      console.log("Main Profile:" + (data))
       const backgroundStyle = {
         backgroundImage: "url('" + data.selectProfile?.heroImg + "') !important"
       }
