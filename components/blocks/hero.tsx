@@ -7,10 +7,10 @@ import type { TinaTemplate } from "tinacms";
 import { PageBlocksHero } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 import { ColorPickerInput } from "../../tina/fields/color";
-// import GlobalData from "../../content/global/index.json";
+import GlobalData from "../../content/global/index.json";
 
 export const Hero = ({ data }: { data: PageBlocksHero }) => {
-  // const theme = GlobalData.theme;
+  const theme = GlobalData.theme;
   
   const backgroundStyle = {
     backgroundImage: "url('" + data.image?.src + "') !important"
@@ -29,6 +29,24 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   let headlineClasses = ""
   let subheadClasses = ""
   let headlineColor = ""
+
+  if (theme.typeAndElements === "recruitment") {
+    if (data.styles.typographyPalette === "style-1") {
+      headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
+     } else if (data.styles.typographyPalette === "style-2") {
+      headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
+     } else if (data.styles.typographyPalette === "style-3") {
+      headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
+     }
+  } else {
+    if (data.styles.typographyPalette === "style-1") {
+      headlineClasses = "font-wvu-shout leading-wvu-shout";
+     } else if (data.styles.typographyPalette === "style-2") {
+      headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
+     } else if (data.styles.typographyPalette === "style-3") {
+      headlineClasses = "font-iowan-old-style-black-italic leading-iowan-old-style";
+     }
+  }
 
   if (data.styles.headlineColor === '#EAAA00') {
     headlineColor = 'text-wvu-gold'
@@ -97,7 +115,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                       ${headlineClasses}
                     `}
                   >
-                    {data.headline}
+                    {data.headline} {console.log("Theme: " + theme.typeAndElements)}
                   </span>
                 )}
               </h3>
