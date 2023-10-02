@@ -17,7 +17,7 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
         width="large"
       >
         <div className="grid grid-cols-12 gap-12">
-          <div className="col-span-8 not-prose">
+          <div className="col-span-8">
             {data.main?.map(function (block, i) {
               return (
                 <MainBlocks key={i} data={block} />

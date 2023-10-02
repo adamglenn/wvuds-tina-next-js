@@ -12,7 +12,7 @@ export const MainBlocks = ({
   switch (data.__typename) {
     case "PageBlocksContentPlusMainRichText":
       return (
-        <div className="prose">
+        <div>
           <TinaMarkdown content={data.textBlock} />
         </div>
       )
@@ -23,7 +23,7 @@ export const MainBlocks = ({
       console.log(data.selectProfile)
       return (
         <div
-          className="p-10 bg-black text-white bg-cover mb-10"
+          className="p-10 bg-black text-white bg-cover mb-10 not-prose"
           style={backgroundStyle}
         >
           <div className="pb-72">
@@ -56,7 +56,7 @@ export const MainBlocks = ({
       }
       return (
         <div
-          className={`drop-shadow-xl p-10 mb-10 ${containerStyles}`}
+          className={`drop-shadow-xl p-10 mb-10 ${containerStyles} not-prose`}
         >
           <h3
             className={`mt-0 mb-4 ${headerStyles}`}

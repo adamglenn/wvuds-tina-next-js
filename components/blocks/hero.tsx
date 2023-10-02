@@ -28,6 +28,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   
   let headlineClasses = ""
   let subheadClasses = ""
+  let headlineColor = ""
 
   if (theme.typeAndElements === "recruitment") {
     if (data.styles.typography === "style-1") {
@@ -46,18 +47,36 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
       headlineClasses = "font-iowan-old-style-black-italic leading-iowan-old-style";
      }
   }
-  
-  const headlineColorClasses = {
-    "wvu-gold": "text-wvu-gold",
-    blue: "from-blue-400 to-blue-600",
-    teal: "from-teal-400 to-teal-600",
-    green: "from-green-400 to-green-600",
-    red: "from-red-400 to-red-600",
-    pink: "from-pink-400 to-pink-600",
-    purple: "from-purple-400 to-purple-600",
-    orange: "from-orange-300 to-orange-600",
-    yellow: "from-yellow-400 to-yellow-600",
-  };
+
+  if (data.styles.headlineColor === '#EAAA00') {
+    headlineColor = 'text-wvu-gold'
+  } else if (data.styles.headlineColor === '#002855') {
+    headlineColor = 'text-wvu-blue'
+  } else if (data.styles.headlineColor === '#1C2B39') {
+    headlineColor = 'text-wvu-accent--blue-dark'
+  } else if (data.styles.headlineColor === '#9DDAE6') {
+    headlineColor = 'text-wvu-accent--blue-light'
+  } else if (data.styles.headlineColor === '#0062A3') {
+    headlineColor = 'text-wvu-accent--blue'
+  } else if (data.styles.headlineColor === '#FFE539') {
+    headlineColor = 'text-wvu-accent--old-gold'
+  } else if (data.styles.headlineColor === '#7F6310') {
+    headlineColor = 'text-wvu-accent--yellow'
+  } else if (data.styles.headlineColor === '#F58672') {
+    headlineColor = 'text-wvu-accent--sunset'
+  } else if (data.styles.headlineColor === '#F7F7F7') {
+    headlineColor = 'text-wvu-neutral--off-white'
+  } else if (data.styles.headlineColor === '#BEB7B3') {
+    headlineColor = 'text-wvu-neutral--warm-gray-light'
+  } else if (data.styles.headlineColor === '#554741') {
+    headlineColor = 'text-wvu-neutral--warm-gray-dark'
+  } else if (data.styles.headlineColor === '#988E8B') {
+    headlineColor = 'text-wvu-neutral--warm-gray-medium'
+  } else if (data.styles.headlineColor === '#F2E6C2') {
+    headlineColor = 'text-wvu-neutral--cream'
+  } else if (data.styles.headlineColor === '#B3A169') {
+    headlineColor = 'text-wvu-neutral--tan'
+  }
 
   return (
     <Section>
@@ -91,7 +110,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                     className={`
                       block
                       ${data.styles?.headlineDecoration}
-                      ${data.styles?.headlineColor}
+                      ${headlineColor}
                       ${data.styles?.headlineSize}
                       ${headlineClasses}
                     `}
@@ -343,7 +362,10 @@ export const heroBlockSchema: TinaTemplate = {
           label: "Headline Color",
           name: "headlineColor",
           ui: {
-            component: ColorPickerInput,
+            component: 'color',
+            colorFormat: 'hex',
+            colors: ['#FFFFFF', '#EAAA00', '#002855', '#1C2B39', '#9DDAE6', '#0062A3', '#FFE539', '#7F6310', '#F58672', '#F7F7F7', '#BEB7B3', '#554741', '#988E8B', '#F2E6C2', '#B3A169'],
+            widget: 'block',
           }
         },
         {

@@ -18,7 +18,7 @@ blocks:
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
       typography: style-2
-      headlineColor: ''
+      headlineColor: '#FFFFFF'
       headlineSize: text-6xl
       headlineDecoration: wvu-bar
     color: primary
@@ -78,6 +78,12 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
 
 
 
