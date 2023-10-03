@@ -157,8 +157,8 @@ export const Infographic = ({ data }: { data: PageBlocksInfographic }) => {
 };
 
 export const infographicBlockSchema: TinaTemplate = {
-  name: "hero",
-  label: "Hero",
+  name: "infographic",
+  label: "Infographic",
   ui: {
     previewSrc: "/blocks/hero.png",
     defaultItem: {
