@@ -7,6 +7,14 @@ import { MainBlocks } from "../util/main-blocks";
 import { SidebarBlocks } from "../util/sidebar-blocks";
 
 export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
+  let mainCols = ""
+  let sidebarCols = ""
+  if (data.sidebar !== null) {
+    mainCols = "col-span-8"
+    sidebarCols = "col-span-4"
+  } else {
+    mainCols = "col-span-12"
+  }
   return (
     <Section color={data.color}>
       <Container
@@ -17,20 +25,21 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
         width="large"
       >
         <div className="grid grid-cols-12 gap-12">
-          <div className="col-span-8">
+          <div className={`${mainCols}`}>
             {data.main?.map(function (block, i) {
               return (
                 <MainBlocks key={i} data={block} />
               )
             })}
           </div>
-          <div className="col-span-4 not-prose">
-            {data.sidebar?.map(function (block, i) {
-              return (
+          
+          {data.sidebar?.map(function (block, i) {
+            return (
+              <div className={`${sidebarCols} not-prose`}>
                 <SidebarBlocks key={i} data={block} />
-              )
-            })}
-          </div>
+              </div>
+            )
+          })}
         </div>
       </Container>
     </Section>
@@ -141,16 +150,6 @@ export const contentPlusBlockSchema: TinaTemplate = {
           },
           fields: [
             {
-              type: "string",
-              label: "Title",
-              name: "title",
-            },
-            {
-              type: "string",
-              label: "Lede",
-              name: "lede",
-            },
-            {
               name: "pages",
               label: "Pages",
               type: "object",
@@ -163,6 +162,21 @@ export const contentPlusBlockSchema: TinaTemplate = {
                 },
               ],
             },
+            {
+              type: "string",
+              name: "layout",
+              label: "Layout",
+              options: [
+                {
+                  label: "Horiztonal",
+                  value: "horizontal",
+                },
+                {
+                  label: "Vertical",
+                  value: "vertical",
+                }
+              ]
+            }
           ],
         },
       ]

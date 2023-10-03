@@ -25,6 +25,13 @@ blocks:
     color: primary
     _template: hero
   - main:
+      - pages:
+          - page: content/pages/home.md
+          - page: content/pages/about.md
+          - page: content/pages/Tina-Demo.md
+          - page: content/pages/Test-Page.md
+        layout: horizontal
+        _template: pageCollection
       - selectProfile: >-
           content/profiles/when-the-streets-are-a-jungle-there-can-be-only-one-king.md
         _template: profile
@@ -97,7 +104,23 @@ blocks:
       Here is some more text.
     color: default
     _template: content
+heroImg: /uploads/39257 S DJM 0312 XX.jpg
+preview: >-
+  Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit
+  maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad
+  vasti, distulit.
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 
 

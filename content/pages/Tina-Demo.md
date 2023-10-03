@@ -48,7 +48,13 @@ blocks:
     _template: features
   - body: ''
     _template: content
+heroImg: /uploads/39130 S AHR 0859 XX.jpg
+preview: >-
+  Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit
+  maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad
+  vasti, distulit.
 ---
+
 
 
 

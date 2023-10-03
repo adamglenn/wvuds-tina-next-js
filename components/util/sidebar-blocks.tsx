@@ -70,7 +70,7 @@ export const SidebarBlocks = ({
       const calFeed = useScript('https://cal.wvu.edu/widget/view?schools=wvu&departments=athletics&days=90&num=3&container=localist-widget-52631272&template=tailwind');
       return (
         <div className="text-sm mb-10">
-          <h2 className="font-wvu-shout text-3xl text-wvu-blue mb-5">Events</h2>
+          <h2 className="font-wvu-shout leading-wvu-shout text-3xl text-wvu-blue mb-5">Events</h2>
           <div id="localist-widget-52631272" className="localist-widget"></div>
         </div>
       )

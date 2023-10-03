@@ -11,7 +11,7 @@ import useScript from '../util/calendar';
 
 export const PageCollectionPages = ({ data }: { data: PageBlocksPageCollectionPages }) => {
   return (
-    <div>
+    <div className="text-sm">
       {data.page?.heroImg && (
         (data.page?.heroImg && (
           <figure className="mb-4"><img src={data.page?.heroImg} /></figure>
@@ -19,6 +19,9 @@ export const PageCollectionPages = ({ data }: { data: PageBlocksPageCollectionPa
       )}
       {data.page?.title && (
         <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4">{data.page?.title}</h2>
+      )}
+      {data.page?.preview && (
+        <p className="mb-4 leading-4">{data.page?.preview}</p>
       )}
       <a className="text-blue" href="#">
         Read More <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="ml-1 -mr-1 w-6 h-6 opacity-80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg>
@@ -28,12 +31,25 @@ export const PageCollectionPages = ({ data }: { data: PageBlocksPageCollectionPa
 };
 
 export const PageCollection = ({ data }: { data: PageBlocksPageCollection }) => {
-  const theme = useTheme();
+  let gridClasses = ""
+  let colClasses = ""
+  if (data.layout === "vertical") {
+    gridClasses = "grid-cols-1 mb-12"
+    colClasses = "col-span-1"
+  } else {
+    gridClasses = "grid-cols-1 md:grid-cols-4"
+    colClasses = "col-span-1"
+  }
+  console.log("Layout: " + data)
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
-      {data.pages &&
-        data.pages?.map(function (block, i) {
-          return (<PageCollectionPages key={i} data={block} />)
+    <div className={`grid ${gridClasses} gap-6 justify-center`}>
+      {data &&
+        data.map(function (block, i) {
+          return (
+            <div className={`${colClasses}`}>
+              <PageCollectionPages key={i} data={block} />
+            </div>
+          )
         })
       }
     </div>
@@ -45,6 +61,7 @@ export const MainBlocks = ({
 }: {
   data: PageBlocksContentPlusMain;
 }) => {
+  const theme = useTheme();
   switch (data.__typename) {
     case "PageBlocksContentPlusMainRichText":
       return (
@@ -148,7 +165,7 @@ export const MainBlocks = ({
       )
     case "PageBlocksContentPlusMainPageCollection":
       return (
-        <PageCollection data={data.pageCollection} />
+        <PageCollection data={data.pages} />
       )
     default:
       return null;

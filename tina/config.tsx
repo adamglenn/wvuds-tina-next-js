@@ -381,6 +381,16 @@ const config = defineConfig({
             required: true,
           },
           {
+            type: "image",
+            name: "heroImg",
+            label: "Hero Image",
+          },
+          {
+            type: "string",
+            label: "Collection Preview",
+            name: "preview",
+          },
+          {
             type: "object",
             list: true,
             name: "blocks",

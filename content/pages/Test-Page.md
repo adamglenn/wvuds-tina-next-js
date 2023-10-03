@@ -52,7 +52,13 @@ blocks:
     author: Phil Karlton
     color: primary
     _template: testimonial
+heroImg: /uploads/39197 S JFS 0026 XX.jpg
+preview: >-
+  Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit
+  maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad
+  vasti, distulit.
 ---
+
 
 
 
