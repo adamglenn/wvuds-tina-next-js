@@ -3,11 +3,13 @@ import { PageBlocksContentPlusMain } from "../../tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { tinaField } from "tinacms/dist/react";
 import {
+  PageBlocksPageCollection,
   PageBlocksPageCollectionPages,
 } from "../../tina/__generated__/types";
+import { useTheme } from "../layout";
 import useScript from '../util/calendar';
 
-export const PageCollectionItems = ({ data }: { data: PageBlocksPageCollectionPages }) => {
+export const PageCollectionPages = ({ data }: { data: PageBlocksPageCollectionPages }) => {
   return (
     <div>
       {data.page?.heroImg && (
@@ -18,12 +20,22 @@ export const PageCollectionItems = ({ data }: { data: PageBlocksPageCollectionPa
       {data.page?.title && (
         <h2 className="w-100 text-2xl font-iowan-old-style-black leading-iowan-old-style text-wvu-blue mb-4">{data.page?.title}</h2>
       )}
-      {data.page?.preview && (
-        <p className="mb-4">{data.post?.preview}</p>
-      )}
       <a className="text-blue" href="#">
         Read More <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="ml-1 -mr-1 w-6 h-6 opacity-80" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg>
       </a>
+    </div>
+  );
+};
+
+export const PageCollection = ({ data }: { data: PageBlocksPageCollection }) => {
+  const theme = useTheme();
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
+      {data.pages &&
+        data.pages?.map(function (block, i) {
+          return (<PageCollectionPages key={i} data={block} />)
+        })
+      }
     </div>
   );
 };
@@ -136,13 +148,7 @@ export const MainBlocks = ({
       )
     case "PageBlocksContentPlusMainPageCollection":
       return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 justify-center">
-          {data.pages &&
-            data.pages?.map(function (block, i) {
-              return (<PageCollectionItems key={i} data={block} />)
-            })
-          }
-        </div>
+        <PageCollection data={data.pageCollection} />
       )
     default:
       return null;

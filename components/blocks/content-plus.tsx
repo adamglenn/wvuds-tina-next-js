@@ -158,8 +158,8 @@ export const contentPlusBlockSchema: TinaTemplate = {
               fields: [
                 {
                   type: "reference",
-                  name: "post",
-                  collections: ['pages']
+                  name: "page",
+                  collections: ['page']
                 },
               ],
             },
