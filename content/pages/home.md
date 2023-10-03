@@ -17,9 +17,10 @@ blocks:
     isBackground: true
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
-      typographyPalette: style-2
+      typographyPalette: style-1
       headlineColor: '#FFFFFF'
       headlineSize: text-7xl
+      elements: style-1
       headlineDecoration: wvu-slash
     color: primary
     _template: hero
@@ -67,6 +68,23 @@ blocks:
           color, font, or icon set.
     color: tint
     _template: features
+  - tagline: ''
+    headline: Big Text
+    subhead: ''
+    text: |
+      Here is my body text.
+    image:
+      src: /uploads/felipe-giacometti-wH_fGzWELuw-unsplash (1).jpg
+    backgroundPosition: bg-center
+    isBackground: true
+    styles:
+      headlineFont: font-wvu-shout leading-wvu-shout
+      typographyPalette: style-1
+      headlineSize: text-6xl
+      elements: style-2
+      headlineDecoration: wvu-slash
+    color: primary
+    _template: infographic
   - quote: >-
       There are only two hard things in Computer Science: cache invalidation and
       naming things.
@@ -80,6 +98,17 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 
 

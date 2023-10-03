@@ -132,7 +132,39 @@ export const contentPlusBlockSchema: TinaTemplate = {
               collections: ['profiles'],
             }
           ]
-        }
+        },
+        {
+          name: "pageCollection",
+          label: "Page Collection",
+          ui: {
+            previewSrc: "/blocks/hero.png",
+          },
+          fields: [
+            {
+              type: "string",
+              label: "Title",
+              name: "title",
+            },
+            {
+              type: "string",
+              label: "Lede",
+              name: "lede",
+            },
+            {
+              name: "pages",
+              label: "Pages",
+              type: "object",
+              list: true,
+              fields: [
+                {
+                  type: "reference",
+                  name: "post",
+                  collections: ['pages']
+                },
+              ],
+            },
+          ],
+        },
       ]
     },
     {
