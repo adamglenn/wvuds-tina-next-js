@@ -3,6 +3,7 @@ import { Content } from "./blocks/content";
 import { ContentPlus } from "./blocks/content-plus";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
+import { Infographic } from "./blocks/infographic";
 import { Testimonial } from "./blocks/testimonial";
 import { tinaField } from "tinacms/dist/react";
 
@@ -30,6 +31,8 @@ const Block = (block: PageBlocks) => {
       return <ContentPlus data={block} />;
     case "PageBlocksHero":
       return <Hero data={block} />;
+    case "PageBlocksInfographic":
+      return <Infographic data={block} />;
     case "PageBlocksFeatures":
       return <Features data={block} />;
     case "PageBlocksTestimonial":

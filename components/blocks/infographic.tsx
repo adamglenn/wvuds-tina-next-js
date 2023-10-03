@@ -4,12 +4,12 @@ import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
-import { PageBlocksHero } from "../../tina/__generated__/types";
+import { PageBlocksInfographic } from "../../tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 import { ColorPickerInput } from "../../tina/fields/color";
 import GlobalData from "../../content/global/index.json";
 
-export const Hero = ({ data }: { data: PageBlocksHero }) => {
+export const Infographic = ({ data }: { data: PageBlocksInfographic }) => {
   const theme = GlobalData.theme;
   
   const backgroundStyle = {
@@ -93,7 +93,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     <Section>
       <div
         style={backgroundStyle}
-        className={`bg-cover bg-${data.color} ${data.backgroundPosition} ${data.backgroundAttachment}`}
+        className={`bg-cover bg-${data.color} ${data.backgroundPosition} w-full aspect-16/9`}
       >
         <Container
           size="large"
@@ -156,7 +156,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   );
 };
 
-export const heroBlockSchema: TinaTemplate = {
+export const infographicBlockSchema: TinaTemplate = {
   name: "hero",
   label: "Hero",
   ui: {

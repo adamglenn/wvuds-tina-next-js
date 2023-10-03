@@ -89,11 +89,37 @@
     -webkit-text-stroke-width:1px;
     stroke-width:1px;
     -webkit-text-fill-color: transparent;
-    top: -.01em;
+    top: -.04em;
     left: .04em;
     width: 100%;
   }
   .text-shadow {
     text-shadow: -.05em .05em 0px #000000;
+  }
+  .wvu-slash {
+    background-image: none;
+    position: relative;
+    z-index: 0;
+  }
+  .wvu-slash::before {
+    background-color: #EAAA00;
+    content: '';
+    position: absolute;
+    right: 0;
+    left: -.5em;
+    height: 150%;
+    max-height: 15rem;
+    top: -25%;
+    width: 1em;
+    opacity: 1;
+    z-index: -1;
+    -ms-transform: skewX(149deg); /* IE 9 */
+    -webkit-transform: skewX(149deg); /* Safari */
+    transform: skewX(149deg);
+  }
+  .wvu-slash.wvu-slash--gradient::before {
+    background-color: #EAAA00;
+    background-image: linear-gradient(0deg, rgba(245,134,114,1) 0%, rgba(234,170,0,1) 50%);
+    background-repeat: no-repeat;
   }
 }

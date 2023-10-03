@@ -1,7 +1,7 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - tagline: Here's some text above the other text
+  - tagline: ''
     headline: Here is my headline new text
     text: |
       Here is my text.
@@ -19,8 +19,8 @@ blocks:
       headlineFont: font-wvu-shout leading-wvu-shout
       typographyPalette: style-2
       headlineColor: '#FFFFFF'
-      headlineSize: text-6xl
-      headlineDecoration: wvu-bar
+      headlineSize: text-7xl
+      headlineDecoration: wvu-slash
     color: primary
     _template: hero
   - main:
@@ -80,6 +80,9 @@ blocks:
     color: default
     _template: content
 ---
+
+
+
 
 
 

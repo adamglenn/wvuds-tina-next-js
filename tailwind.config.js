@@ -62,6 +62,11 @@ module.exports = {
       xl: "1500px",
       "2xl": "1800px",
     },
+    aspectRatio: {
+      '4/3': '4 / 3',
+      '16/9': '16 / 9',
+      '9/16': '9/16',
+    },
     fontSize: {
       xs: ".875rem",
       sm: "1rem",
@@ -103,7 +108,7 @@ module.exports = {
       lineHeight: {
         "wvu-shout": "0.80487em",
         "iowan-old-style": "1.16666666667em",
-        "oliviar": "1.2em",
+        "oliviar-sans": "1.2em",
       },
       textDecoration: ["active"],
       opacity: {

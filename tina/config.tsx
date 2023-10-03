@@ -3,6 +3,7 @@ import { contentBlockSchema } from "../components/blocks/content";
 import { contentPlusBlockSchema } from "../components/blocks/content-plus";
 import { featureBlockSchema } from "../components/blocks/features";
 import { heroBlockSchema } from "../components/blocks/hero";
+import { infographicBlockSchema } from "../components/blocks/infographic";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { ColorPickerInput } from "./fields/color";
 import { iconSchema } from "../components/util/icon";
@@ -389,6 +390,7 @@ const config = defineConfig({
             },
             templates: [
               heroBlockSchema,
+              infographicBlockSchema,
               // @ts-ignore
               featureBlockSchema,
               contentBlockSchema,
