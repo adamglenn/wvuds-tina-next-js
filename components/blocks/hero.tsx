@@ -31,18 +31,26 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   let headlineColor = ""
   let headlineDecoration = ""
   let headlineSize = "text-7xl"
+  let textShadowClasses = ""
+  let experimentalClasses = "hidden"
 
-  if (data.styles?.headlineSize !== null) {
+  if (data.styles?.headlineSize) {
     headlineSize = data.styles?.headlineSize
   }
 
   if (theme.typeAndElements === "recruitment") {
     if (data.styles?.typographyPalette === "style-1") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
+      textShadowClasses = "text-shadow";
+      experimentalClasses = "block wvu-experimental absolute w-100";
      } else if (data.styles?.typographyPalette === "style-2") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
+      textShadowClasses = "text-shadow";
+      experimentalClasses = "block wvu-experimental absolute w-100";
      } else if (data.styles?.typographyPalette === "style-3") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
+      textShadowClasses = "text-shadow";
+      experimentalClasses = "block wvu-experimental absolute w-100";
      }
   } else {
     if (data.styles?.typographyPalette === "style-1") {
@@ -119,20 +127,18 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
             {data.headline && (
               <h3
                 data-tina-field={tinaField(data, "headline")}
-                className={`w-full relative	mb-10`}
+                className={`
+                  w-full
+                  relative
+                  mb-10
+                  ${headlineDecoration}
+                  ${headlineColor}
+                  ${headlineSize}
+                  ${headlineClasses}
+                `}
               >
-                <span
-                  className={`
-                    block
-                    ${headlineDecoration}
-                    ${headlineColor}
-                    ${headlineSize}
-                    ${headlineClasses}
-                  `}
-                >
-                  <span className="block wvu-experimental absolute w-100" aria-hidden="true">{data.headline}</span>
-                  <span className="text-shadow">{data.headline}</span>
-                </span>
+                <span className={`${experimentalClasses}`} aria-hidden="true">{data.headline}</span>
+                <span className={`${textShadowClasses}`}>{data.headline}</span>
               </h3>
             )}
             {data.text && (
@@ -316,6 +322,19 @@ export const heroBlockSchema: TinaTemplate = {
       type: "object",
       name: "styles",
       label: "Styles",
+      list: true,
+      ui: {
+        previewSrc: "/blocks/hero.png",
+        defaultItem: {
+          typographyPalette: {
+            type: "string",
+            label: "Style 1",
+            value: "style-1",
+          },
+          headline: "This Big Text is Totally Awesome",
+          text: "Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan libero, nec molestie urna dui a leo.",
+        },
+      },
       // @ts-ignore
       fields: [
         {
@@ -357,7 +376,6 @@ export const heroBlockSchema: TinaTemplate = {
           type: "string",
           label: "Typography Palette",
           name: "typographyPalette",
-          list: true,
           options: [
             {
               label: "Style 1",
