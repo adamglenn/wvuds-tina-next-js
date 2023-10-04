@@ -35,8 +35,8 @@ export const ContentPlus = ({ data }: { data: PageBlocksContentPlus }) => {
           
           {data.sidebar?.map(function (block, i) {
             return (
-              <div className={`${sidebarCols} not-prose`}>
-                <SidebarBlocks key={i} data={block} />
+              <div className={`${sidebarCols} not-prose`} key={i}>
+                <SidebarBlocks data={block} />
               </div>
             )
           })}

@@ -32,59 +32,59 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   let headlineDecoration = ""
 
   if (theme.typeAndElements === "recruitment") {
-    if (data.styles.typographyPalette === "style-1") {
+    if (data.styles?.typographyPalette === "style-1") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
-     } else if (data.styles.typographyPalette === "style-2") {
+     } else if (data.styles?.typographyPalette === "style-2") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
-     } else if (data.styles.typographyPalette === "style-3") {
+     } else if (data.styles?.typographyPalette === "style-3") {
       headlineClasses = "font-oliviar-sans-black-extended leading-oliviar-sans uppercase";
      }
   } else {
-    if (data.styles.typographyPalette === "style-1") {
+    if (data.styles?.typographyPalette === "style-1") {
       headlineClasses = "font-wvu-shout leading-wvu-shout";
-     } else if (data.styles.typographyPalette === "style-2") {
+     } else if (data.styles?.typographyPalette === "style-2") {
       headlineClasses = "font-iowan-old-style-black leading-iowan-old-style";
-     } else if (data.styles.typographyPalette === "style-3") {
+     } else if (data.styles?.typographyPalette === "style-3") {
       headlineClasses = "font-iowan-old-style-black-italic leading-iowan-old-style";
      }
   }
 
-  if (data.styles.headlineColor === '#EAAA00') {
+  if (data.styles?.headlineColor === '#EAAA00') {
     headlineColor = 'text-wvu-gold'
-  } else if (data.styles.headlineColor === '#002855') {
+  } else if (data.styles?.headlineColor === '#002855') {
     headlineColor = 'text-wvu-blue'
-  } else if (data.styles.headlineColor === '#1C2B39') {
+  } else if (data.styles?.headlineColor === '#1C2B39') {
     headlineColor = 'text-wvu-accent--blue-dark'
-  } else if (data.styles.headlineColor === '#9DDAE6') {
+  } else if (data.styles?.headlineColor === '#9DDAE6') {
     headlineColor = 'text-wvu-accent--blue-light'
-  } else if (data.styles.headlineColor === '#0062A3') {
+  } else if (data.styles?.headlineColor === '#0062A3') {
     headlineColor = 'text-wvu-accent--blue'
-  } else if (data.styles.headlineColor === '#FFE539') {
+  } else if (data.styles?.headlineColor === '#FFE539') {
     headlineColor = 'text-wvu-accent--old-gold'
-  } else if (data.styles.headlineColor === '#7F6310') {
+  } else if (data.styles?.headlineColor === '#7F6310') {
     headlineColor = 'text-wvu-accent--yellow'
-  } else if (data.styles.headlineColor === '#F58672') {
+  } else if (data.styles?.headlineColor === '#F58672') {
     headlineColor = 'text-wvu-accent--sunset'
-  } else if (data.styles.headlineColor === '#F7F7F7') {
+  } else if (data.styles?.headlineColor === '#F7F7F7') {
     headlineColor = 'text-wvu-neutral--off-white'
-  } else if (data.styles.headlineColor === '#BEB7B3') {
+  } else if (data.styles?.headlineColor === '#BEB7B3') {
     headlineColor = 'text-wvu-neutral--warm-gray-light'
-  } else if (data.styles.headlineColor === '#554741') {
+  } else if (data.styles?.headlineColor === '#554741') {
     headlineColor = 'text-wvu-neutral--warm-gray-dark'
-  } else if (data.styles.headlineColor === '#988E8B') {
+  } else if (data.styles?.headlineColor === '#988E8B') {
     headlineColor = 'text-wvu-neutral--warm-gray-medium'
-  } else if (data.styles.headlineColor === '#F2E6C2') {
+  } else if (data.styles?.headlineColor === '#F2E6C2') {
     headlineColor = 'text-wvu-neutral--cream'
-  } else if (data.styles.headlineColor === '#B3A169') {
+  } else if (data.styles?.headlineColor === '#B3A169') {
     headlineColor = 'text-wvu-neutral--tan'
   }
 
   if (theme.typeAndElements === "recruitment") {
-    if (data.styles.headlineDecoration === "wvu-slash") {
+    if (data.styles?.headlineDecoration === "wvu-slash") {
       headlineDecoration = "wvu-slash wvu-slash--gradient bg-gradient-to-r from-wvu-accent--sunset to-wvu-gold"
     }
   } else {
-    if (data.styles.headlineDecoration === "wvu-slash") {
+    if (data.styles?.headlineDecoration === "wvu-slash") {
       headlineDecoration = "wvu-slash"
     }
   }
@@ -313,6 +313,14 @@ export const heroBlockSchema: TinaTemplate = {
       type: "object",
       name: "styles",
       label: "Styles",
+      ui: {
+        defaultItem: {
+          headlineFont: "Default",
+          typographyPalette: "Style 1",
+          headlineSize: "Large",
+          elements: "Style 1",
+        },
+      },
       // @ts-ignore
       fields: [
         {
@@ -386,7 +394,7 @@ export const heroBlockSchema: TinaTemplate = {
           name: "headlineSize",
           options: [
             {
-              label: "Default",
+              label: "Large",
               value: "text-7xl",
             },
             {

@@ -2,6 +2,7 @@ import React from "react";
 import { PageBlocksContentPlusSidebar } from "../../tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { tinaField } from "tinacms/dist/react";
+import { CalFeed } from "./calendar"
 import useScript from '../util/calendar';
 
 export const SidebarBlocks = ({
@@ -67,12 +68,8 @@ export const SidebarBlocks = ({
         <h3>{data.heading}</h3>
       );
     case "PageBlocksContentPlusSidebarCalendar":
-      const calFeed = useScript('https://cal.wvu.edu/widget/view?schools=wvu&departments=athletics&days=90&num=3&container=localist-widget-52631272&template=tailwind');
       return (
-        <div className="text-sm mb-10">
-          <h2 className="font-wvu-shout leading-wvu-shout text-3xl text-wvu-blue mb-5">Events</h2>
-          <div id="localist-widget-52631272" className="localist-widget"></div>
-        </div>
+        <CalFeed gridClasses="" feed="https://cal.wvu.edu/widget/view?schools=wvu&departments=athletics&days=90&num=3&container=localist-widget-52631272&template=tailwind" />
       )
     default:
       return null;

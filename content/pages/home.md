@@ -3,8 +3,10 @@ title: Tina Cloud Starter
 blocks:
   - tagline: ''
     headline: Here is my headline new text
-    text: |
-      Here is my text.
+    text: >
+      Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut
+      haesit maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei
+      furoris e ad vasti, distulit.
     actions:
       - label: Action Label
         type: button
@@ -25,12 +27,13 @@ blocks:
     color: primary
     _template: hero
   - main:
+      - _template: calendar
       - pages:
           - page: content/pages/home.md
           - page: content/pages/about.md
           - page: content/pages/Tina-Demo.md
           - page: content/pages/Test-Page.md
-        layout: horizontal
+        layout: vertical
         _template: pageCollection
       - selectProfile: >-
           content/profiles/when-the-streets-are-a-jungle-there-can-be-only-one-king.md
@@ -83,7 +86,7 @@ blocks:
     image:
       src: /uploads/felipe-giacometti-wH_fGzWELuw-unsplash (1).jpg
     backgroundPosition: bg-center
-    isBackground: true
+    isBackground: false
     styles:
       headlineFont: font-wvu-shout leading-wvu-shout
       typographyPalette: style-1
@@ -110,6 +113,11 @@ preview: >-
   maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad
   vasti, distulit.
 ---
+
+
+
+
+
 
 
 
