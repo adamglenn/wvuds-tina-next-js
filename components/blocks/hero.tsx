@@ -26,10 +26,15 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     overlayStyles = baseOverlayClasses
   }
   
-  let headlineClasses = ""
+  let headlineClasses = "font-wvu-shout leading-wvu-shout"
   let subheadClasses = ""
   let headlineColor = ""
   let headlineDecoration = ""
+  let headlineSize = "text-7xl"
+
+  if (data.styles?.headlineSize !== null) {
+    headlineSize = data.styles?.headlineSize
+  }
 
   if (theme.typeAndElements === "recruitment") {
     if (data.styles?.typographyPalette === "style-1") {
@@ -116,20 +121,18 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 data-tina-field={tinaField(data, "headline")}
                 className={`w-full relative	mb-10`}
               >
-                {data.styles && (
-                  <span
-                    className={`
-                      block
-                      ${headlineDecoration}
-                      ${headlineColor}
-                      ${data.styles?.headlineSize}
-                      ${headlineClasses}
-                    `}
-                  >
-                    <span className="block wvu-experimental absolute w-100" aria-hidden="true">{data.headline}</span>
-                    <span className="text-shadow">{data.headline}</span>
-                  </span>
-                )}
+                <span
+                  className={`
+                    block
+                    ${headlineDecoration}
+                    ${headlineColor}
+                    ${headlineSize}
+                    ${headlineClasses}
+                  `}
+                >
+                  <span className="block wvu-experimental absolute w-100" aria-hidden="true">{data.headline}</span>
+                  <span className="text-shadow">{data.headline}</span>
+                </span>
               </h3>
             )}
             {data.text && (
@@ -313,14 +316,6 @@ export const heroBlockSchema: TinaTemplate = {
       type: "object",
       name: "styles",
       label: "Styles",
-      ui: {
-        defaultItem: {
-          headlineFont: "Default",
-          typographyPalette: "Style 1",
-          headlineSize: "Large",
-          elements: "Style 1",
-        },
-      },
       // @ts-ignore
       fields: [
         {
@@ -362,6 +357,7 @@ export const heroBlockSchema: TinaTemplate = {
           type: "string",
           label: "Typography Palette",
           name: "typographyPalette",
+          list: true,
           options: [
             {
               label: "Style 1",
@@ -375,7 +371,7 @@ export const heroBlockSchema: TinaTemplate = {
               label: "Style 3",
               value: "style-3",
             },
-          ]
+          ],
         },
         {
           type: "string",
