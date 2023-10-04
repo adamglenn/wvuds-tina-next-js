@@ -322,19 +322,6 @@ export const heroBlockSchema: TinaTemplate = {
       type: "object",
       name: "styles",
       label: "Styles",
-      list: true,
-      ui: {
-        previewSrc: "/blocks/hero.png",
-        defaultItem: {
-          typographyPalette: {
-            type: "string",
-            label: "Style 1",
-            value: "style-1",
-          },
-          headline: "This Big Text is Totally Awesome",
-          text: "Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan libero, nec molestie urna dui a leo.",
-        },
-      },
       // @ts-ignore
       fields: [
         {
@@ -376,6 +363,7 @@ export const heroBlockSchema: TinaTemplate = {
           type: "string",
           label: "Typography Palette",
           name: "typographyPalette",
+          list: true,
           options: [
             {
               label: "Style 1",
